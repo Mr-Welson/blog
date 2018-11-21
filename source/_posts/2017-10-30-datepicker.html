@@ -1,0 +1,378 @@
+---
+layout: post
+title: 日历插件
+date: 2017-10-30
+categories:
+ - JavaScript
+tags: [JavaScript, demo]
+---
+<div>
+	<p>js原生日历插件，功能尚未完善。。。</p>
+	<p>目前只实现了最基础的日历数据获取</p>
+</div>
+<!-- more -->
+<div id='my-date-picker' class="my-date-picker">
+		<div class="my-date-input-wrapper">
+			<input type="text" class='my-date-input' name='my-date' />
+		</div>
+		<div class="my-date-table-wrapper">
+			<div class='my-date-header'>
+				<a class="my-date-select-btn my-date-select-year-pre-btn">《</a>
+				<a class="my-date-select-btn my-date-select-month-pre-btn">&lt;</a>
+				<span class="my-date-select">
+					<a class="my-date-year-select">2017年</a>
+					<a class="my-date-month-select">10月</a>
+				</span>
+				<a class="my-date-select-btn my-date-select-month-next-btn">&gt;</a>
+				<a class="my-date-select-btn my-date-select-year-next-btn">》</a>
+
+			</div>
+			<div class="my-date-body">
+				<table class='my-date-table'>
+					<thead>
+						<tr>
+							<th>一</th>
+							<th>二</th>
+							<th>三</th>
+							<th>四</th>
+							<th>五</th>
+							<th>六</th>
+							<th>日</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="date-cell">29</td>
+							<td class="date-cell">30</td>
+							<td class="date-cell">1</td>
+							<td class="date-cell">2</td>
+							<td class="date-cell">3</td>
+							<td class="date-cell">4</td>
+							<td class="date-cell">5</td>
+						</tr>
+						<tr>
+							<td class="date-cell">6</td>
+							<td class="date-cell">7</td>
+							<td class="date-cell">8</td>
+							<td class="date-cell">9</td>
+							<td class="date-cell">10</td>
+							<td class="date-cell">11</td>
+							<td class="date-cell">12</td>
+						</tr>
+						<tr>
+							<td class="date-cell">13</td>
+							<td class="date-cell">14</td>
+							<td class="date-cell">15</td>
+							<td class="date-cell">16</td>
+							<td class="date-cell">17</td>
+							<td class="date-cell">18</td>
+							<td class="date-cell">19</td>
+						</tr>
+						<tr>
+							<td class="date-cell">20</td>
+							<td class="date-cell">21</td>
+							<td class="date-cell">22</td>
+							<td class="date-cell">23</td>
+							<td class="date-cell">24</td>
+							<td class="date-cell">25</td>
+							<td class="date-cell">26</td>
+						</tr>
+						<tr>
+							<td class="date-cell">27</td>
+							<td class="date-cell">28</td>
+							<td class="date-cell">29</td>
+							<td class="date-cell">30</td>
+							<td class="date-cell">1</td>
+							<td class="date-cell">2</td>
+							<td class="date-cell">3</td>
+						</tr>
+						<tr>
+							<td class="date-cell">4</td>
+							<td class="date-cell">5</td>
+							<td class="date-cell">6</td>
+							<td class="date-cell">7</td>
+							<td class="date-cell">8</td>
+							<td class="date-cell">9</td>
+							<td class="date-cell">10</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="my-date-footer">
+				<a>今天</a>
+			</div>
+		</div>
+</div>
+<script>
+	var style = document.createElement('link');
+	style.rel='stylesheet';
+	// 动态加载样式
+	if(navigator.userAgent.match(/(iPhone|iPod|Android|ios|webOS|iPad|BlackBerry|Windows Phone|Symbian)/i)){
+		style.href = '/static/css/datepicker-mobile.css';
+	}else{
+		style.href = '/static/css/datepicker.css';
+	}
+	document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+<script>
+	var formatSign = '-';
+	var oTable = $$('.my-date-table')[0];
+	var oInput = $$('.my-date-input')[0];
+	var oYearPre = $$('.my-date-select-year-pre-btn')[0];
+	var oYearNext = $$('.my-date-select-year-next-btn')[0];
+	var oMonthPre = $$('.my-date-select-month-pre-btn')[0];
+	var oMonthNext = $$('.my-date-select-month-next-btn')[0];
+	var oYear = $$('.my-date-year-select')[0];
+	var oMonth = $$('.my-date-month-select')[0];
+	var oTds = $$('.date-cell');
+	var currDate = {};
+
+	init();
+	/*
+		功能：
+		1. 日期格式化
+		2. 选日期
+		3. 选时间
+		4. 选范围
+		5. 是否显示footer
+	*/
+
+	// 给年份添加点击事件
+	oYear.addEventListener('click',function(){
+		console.log('selectYear')
+		// 新建一个div覆盖在原table上
+	})
+
+	// 给月份添加点击事件
+	oMonth.addEventListener('click',function(){
+		console.log('selectMonth')
+		// 新建一个div覆盖在原table上
+	})
+
+	// 点击上一年
+	oYearPre.addEventListener('click',function(){
+		var year = parseInt(oYear.innerHTML)-1;
+		var month = parseInt(oMonth.innerHTML);
+		oYear.innerHTML = year+'年';
+		//  更新日历表格数据
+		renderTable(getDateData(year,month));
+	})
+
+	// 点击下一年
+	oYearNext.addEventListener('click',function(){
+		var year = parseInt(oYear.innerHTML)+1;
+		var month = parseInt(oMonth.innerHTML);
+		oYear.innerHTML = year+'年';
+		//  更新日历表格数据
+		renderTable(getDateData(year,month));
+	})
+
+	// 点击上一月
+	oMonthPre.addEventListener('click',function(){
+		var year = parseInt(oYear.innerHTML);
+		var month = parseInt(oMonth.innerHTML);
+		// 当月份为1时，年份-1
+		if(month===1){
+			year--;
+			oYear.innerHTML = year+'年';
+			month=13
+		}
+		month--;
+		oMonth.innerHTML = month+'月';
+		// 更新日历表格数据
+		renderTable(getDateData(year,month));
+	})
+
+	// 点击下一月
+	oMonthNext.addEventListener('click',function(){
+		var month = parseInt(oMonth.innerHTML);
+		var year = parseInt(oYear.innerHTML);
+		// 当月份为12时，年份+1
+		if(month===12){
+			year++;
+			oYear.innerHTML = year+'年';
+			month=0
+		}
+		month++;
+		oMonth.innerHTML = month+'月';
+		// 更新日历表格数据
+		renderTable(getDateData(year,month));
+	})
+
+	// 给日期添加点击事件
+	oTds.map(function(v,k){
+		v.addEventListener('click',function(e){
+			var year = this.getAttribute('year')*1;
+			var month = this.getAttribute('month')*1;
+			var date = this.getAttribute('date')*1;
+			// 赋值
+			if(currDate.year===year&&currDate.month===month&&currDate.date===date){
+				return void 666
+			}		
+			oInput.value = year+formatSign+getNum(month)+formatSign+getNum(date);
+			oYear.innerHTML = year+'年';
+			oMonth.innerHTML = month+'月';
+			// 2. 不是这个月的重新渲染数据
+			var selectDate = {
+				year:year,
+				month:month,
+				date:date,
+			}
+			if(month!==currDate.month){
+				renderTable(getDateData(year,month),selectDate);
+			}else{
+				var parent = $$('.my-date-table')[0];
+				var preSelect = $$('.my-date-select',parent);
+				if(preSelect.length){
+					removeClass(preSelect[0],'my-date-select');
+				}
+				addClass(this,'my-date-select');
+			}
+			currDate = selectDate;
+		})
+	})
+	// 初始化日历组件
+	function init(config){
+		renderTable();
+		currDate = getCurrDate();
+		oInput.value = currDate.year+formatSign+getNum(currDate.month)+formatSign+getNum(currDate.date);
+	}
+	// 获取日历表格数据
+	function getDateData(year,month){
+		if(!year||!month){
+			var today = new Date();
+			year = today.getFullYear();
+			month = today.getMonth()+1;
+		}
+		// 本月第一天
+		var firstDay = new Date(year,month-1,1);
+		// 本月第一天的星期
+		var firstDateOfCurr = firstDay.getDay();
+		if(firstDateOfCurr===0){firstDateOfCurr=7}
+		// 要显示的上个月的日期的数量
+		var countOfPreMonth = firstDateOfCurr - 1;
+		// 本月最后一天
+		var lastDay = new Date(year,month,0);
+		// 本月最后一天的日期
+		var lastDateOfCurr = lastDay.getDate();
+		// 上个月最后一天
+		var lastDayOfPreMonth = new Date(year,month-1,0);
+		// 上个月最后一天的日期
+		var lastDateOfPreMonth = lastDayOfPreMonth.getDate();
+		var tableDate = [];
+
+		// 获取table的数据
+		for(var i=0;i<6*7;i++){
+			var date = i + 1 - countOfPreMonth;
+			var showDate = date;
+			var mm = month;
+			var yy = year;
+			var className = 'my-date-curr-month';
+			if(date<=0){
+				className = 'my-date-pre-month';
+				showDate = lastDateOfPreMonth + date;
+				mm--;
+				if(mm<=0){ mm=12;yy--; }
+			}else if(date>lastDateOfCurr){
+				className = 'my-date-next-month';
+				showDate = date - lastDateOfCurr;
+				mm++;
+				if(mm>=13){ mm=1;yy++; }
+			}
+			tableDate.push({
+				year:yy,
+				month:mm,
+				date:showDate,
+				className:className,
+			})
+		}
+		return tableDate;
+	}
+	// 获取当前选择的时间
+	function getCurrDate(){
+		if(!currDate.year){
+			var newDate = new Date();
+			var currYear = newDate.getFullYear();
+			var currMonth = newDate.getMonth()+1;
+			var currDay = newDate.getDate();
+			currDate = {
+				year:currYear,
+				month:currMonth,
+				date:currDay,
+			}
+		}
+		return currDate
+	}
+	// 渲染日历table
+	function renderTable(dateData,selectDate){
+		if(!dateData){
+			dateData = getDateData();
+		}
+		if(selectDate){
+			currDate = selectDate
+		}else{
+			getCurrDate();
+		}
+		oTds.map(function(v,k){
+			var dateTemp = dateData[k];
+			var year = dateTemp.year;
+			var month = dateTemp.month;
+			var date = dateTemp.date;
+			v.className = dateTemp.className;
+			v.innerHTML = dateTemp.date;
+			v.setAttribute('year',year);
+			v.setAttribute('month',month);
+			v.setAttribute('date',date);
+			if(date===currDate.date&&month===currDate.month&&year===currDate.year){
+				v.className = 'my-date-curr-month my-date-select';
+			}
+		})
+	}
+	// 格式化数字
+	function getNum(num){
+		return parseInt(num)>9?parseInt(num):('0'+parseInt(num))
+	}
+	// 是否有指定class
+	function hasClass(ele,cls){
+		var eleCls = ele.className||'';
+		var clsArr = eleCls.split(' ');
+		if(clsArr.length){
+			return clsArr.indexOf(cls) !== -1;
+		}else{
+			return false
+		}
+	}
+	// 添加指定class
+	function addClass(ele,cls){
+		if(!hasClass(ele,cls)){
+			ele.className = ele.className+" "+cls
+		}else{
+			console.log(ele+'已有类名'+cls)
+		}
+	}
+	// 移除指定class
+	function removeClass(ele,cls){
+		if(hasClass(ele,cls)){
+			var clsArr = ele.className.split(' ');
+			var index = clsArr.indexOf(cls);
+			clsArr.splice(index,1);
+			ele.className = clsArr.join(' ');
+		}else{
+			console.log(ele+'没有类名'+cls)
+		}
+	}
+	// 查找元素
+	function $$(str,parent){
+		parent = parent?parent:document
+		if(!str){
+			return void 666;
+		}
+		if(/^#/.test(str)){
+			return parent.getElementById(str.substring(1,str.length));
+		}else if(/^\./.test(str)){
+			return Array.prototype.slice.apply(parent.getElementsByClassName(str.substring(1,str.length)));
+		}else{
+			return Array.prototype.slice.apply(parent.getElementsByTagName(str));
+		}
+	}
+</script>

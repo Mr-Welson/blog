@@ -1,0 +1,871 @@
+# ===============================================================
+# ========================= ATTENTION! ==========================
+# ===============================================================
+# NexT repository is moving here: https://github.com/theme-next
+# ===============================================================
+# It's rebase to v6.0.0 and future maintenance will resume there
+# ===============================================================
+
+# ---------------------------------------------------------------
+# Theme Core Configuration Settings
+# ---------------------------------------------------------------
+
+# Set to true, if you want to fully override the default configuration.
+# Useful if you don't want to inherit the theme _config.yml configurations.
+override: false
+
+# ---------------------------------------------------------------
+# Site Information Settings
+# ---------------------------------------------------------------
+
+# To get or check favicons visit: https://realfavicongenerator.net
+# Put your favicons into `hexo-site/source/` (recommend) or `hexo-site/themes/next/source/images/` directory.
+
+# Default NexT favicons placed in `hexo-site/themes/next/source/images/` directory.
+# And if you want to place your icons in `hexo-site/source/` root directory, you must remove `/images` prefix from pathes.
+
+# For example, you put your favicons into `hexo-site/source/images` directory.
+# Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
+favicon:
+  # small: /images/favicon-16x16-next.png
+  small: /assets/images/favicon.jpg
+  medium: /assets/images/favicon.jpg
+  apple_touch_icon: /images/apple-touch-icon-next.png
+  safari_pinned_tab: /images/logo.svg
+  #android_manifest: /images/manifest.json
+  #ms_browserconfig: /images/browserconfig.xml
+
+# Set default keywords (Use a comma to separate)
+keywords: "Welson,blog,github,javascript,js,Hexo,NexT"
+
+# Set rss to false to disable feed link.
+# Leave rss as empty to use site's feed link.
+# Set rss to specific value if you have burned your feed already.
+rss:
+
+
+# ---------------------------------------------------------------
+# Footer Settings -- 页脚参数设置
+# ---------------------------------------------------------------
+footer:
+  # Specify the date when the site was setup.
+  # If not defined, current year will be used.
+  #since: 2015 #站点建立时间
+
+  # Icon between year and copyright info.
+  icon: heart
+
+  # If not defined, will be used `author` from Hexo main config.
+  copyright: false
+  # -------------------------------------------------------------
+  # Hexo link (Powered by Hexo).
+  powered: true
+
+  theme:
+    # Theme & scheme info link (Theme - NexT.scheme).
+    enable: true
+    # Version info of NexT after scheme info (vX.X.X).
+    version: true
+  # -------------------------------------------------------------
+
+  # Any custom text can be defined here. -- 页脚自定义文本显示
+  # custom_text: Hosted by <a target="_blank" href="https://pages.github.com">GitHub Pages</a>
+
+# ---------------------------------------------------------------
+# SEO Settings -- 站内搜索设置
+# ---------------------------------------------------------------
+
+# Canonical(规范), set a canonical link tag in your hexo, you could use it for your SEO of blog.
+# See: https://support.google.com/webmasters/answer/139066
+# Tips: Before you open this tag, remember set up your URL in hexo _config.yml ( ex. url: http://yourdomain.com )
+canonical: true
+
+# Change headers hierarchy on site-subtitle (will be main site description) and on all post/pages titles for better SEO-optimization.
+seo: true
+
+# If true, will add site-subtitle to index page, added in main hexo config.
+# subtitle: Subtitle
+index_with_subtitle: true
+
+
+# ---------------------------------------------------------------
+# Menu Settings -- 网页导航设置
+# ---------------------------------------------------------------
+
+# When running the site in a subdirectory (e.g. domain.tld/blog), remove the leading slash from link value (/archives -> archives). 若你的站点运行在子目录中，请将链接前缀的 / 去掉
+# Usage: `Key: /link/ || icon`
+# Key is the name of menu item. If translate for this menu will find in languages - this translate will be loaded; if not - Key name will be used. Key is case-senstive.
+# Value before `||` delimeter is the target link.
+# Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, question icon will be loaded.
+# 默认菜单：home archives
+# 非默认菜单需要手动创建页面
+menu:
+  home: /
+  archives: /archives/
+  categories: /categories/
+  tags: /tags/
+  about: /about/
+  # commonweal: /404/
+  #schedule: /schedule/
+  #sitemap: /sitemap.xml
+
+# Enable/Disable menu icons. 控制是否显示图标
+# fontawesomeIcon: http://fontawesome.io/icons/
+menu_icons:
+  enable: true 
+  home: home
+  about: user
+  categories: th
+  tags: tags
+  archives: archive
+  sitemap: sitemap
+  commonweal: heartbeat
+  schedule: calendar
+
+
+# ---------------------------------------------------------------
+# Scheme Settings -- 主题设置
+# ---------------------------------------------------------------
+
+# Schemes
+# scheme: Muse #默认主题 黑白主调，大量留白
+scheme: Mist #整洁有序的单栏外观
+# scheme: Pisces #两栏主题，左侧博主信息，右侧文章
+# scheme: Gemini #左侧网站信息及目录，块 + 片段结构布局 
+
+
+# ---------------------------------------------------------------
+# Sidebar Settings -- 侧边栏设置
+# ---------------------------------------------------------------
+# Social Links. -- 社交链接
+# Usage: `Key: permalink || icon`
+# Key is the link label showing to end users.
+# Value before `||` delimeter is the target permalink.
+# Value after `||` delimeter is the name of FontAwesome icon. If icon (with or without delimeter) is not specified, globe icon will be loaded.
+
+social:
+  GitHub: https://github.com/Mr-Welson || github
+  # E-Mail: mailto:yourname@gmail.com || envelope
+  # Twitter: https://twitter.com/your-user-name
+  # 微博: http://weibo.com/your-user-name
+  # 豆瓣: http://douban.com/people/your-user-name
+  # 知乎: http://www.zhihu.com/people/your-user-name
+  简书: http://www.jianshu.com/users/6d851c0d63e8
+
+# Social Links Icons -- 社交链接图标
+social_icons:
+  enable: true
+  icons_only: false
+  transition: false
+  GitHub: github
+  Twitter: twitter
+  Weibo: weibo
+  知乎: leaf 
+  简书: gratipay
+
+# Blog rolls -- 友情链接
+links_icon: link
+links_title: Links
+links_layout: block
+#links_layout: inline
+links:
+  # Title: http://example.com/
+  阮一峰: http://www.ruanyifeng.com/blog/archives.html
+
+# Sidebar Avatar -- 侧边栏头像
+# 路径设置参考：
+  # in theme directory(source/images): /images/avatar.gif
+  # in site  directory(source/uploads): /uploads/avatar.gif
+avatar: /assets/images/avatar.jpg
+
+# Table Of Contents in the Sidebar
+# toc: 文章目录
+toc:
+  enable: true
+
+  # Automatically add list number to toc.
+  number: true
+
+  # If true, all words will placed on next lines if header width longer then sidebar width.
+  wrap: false
+
+# Creative Commons 4.0 International License. -- 添加 Creative Commons 署名协议
+# http://creativecommons.org/
+# Available: by | by-nc | by-nc-nd | by-nc-sa | by-nd | by-sa | zero
+#creative_commons: by-nc-sa
+#creative_commons:
+
+sidebar:
+  # Sidebar Position, available value: left | right (only for Pisces | Gemini).
+  # 设置侧栏的位置
+  position: left 
+  #position: right
+
+  # Sidebar Display, available value (only for Muse | Mist): 设置侧栏显示的时机
+  #  - post    expand on posts automatically. Default(默认值) - 在文章页面（拥有目录列表）时显示
+  #  - always  expand for all pages automatically - 在所有页面中都显示
+  #  - hide    expand only when click on the sidebar toggle icon - 在所有页面中都隐藏（可以手动展开）
+  #  - remove  Totally remove sidebar including sidebar toggle - 完全移除
+  # display: post
+  display: always
+  #display: hide
+  #display: remove
+
+  # Sidebar offset from top menubar in pixels (only for Pisces | Gemini).
+  offset: 12
+  offset_float: 0
+
+  # Back to top in sidebar (only for Pisces | Gemini).
+  b2t: false
+
+  # Scroll percent label in b2t button.
+  scrollpercent: false
+
+  # Enable sidebar on narrow view (only for Muse | Mist).
+  onmobile: false
+
+
+# ---------------------------------------------------------------
+# Post Settings -- 文章发布设置
+# ---------------------------------------------------------------
+# Automatically scroll page to section which is under <!-- more --> mark.
+scroll_to_more: true
+
+# Automatically saving scroll position on each post/page in cookies.
+# 保存页面滚动位置
+save_scroll: false
+
+# excerpt_separator -- 摘要分隔符
+# 在文章中适当位置插入 <!--more-->，该位置之前的部分即为摘要，会显示在首页中。
+excerpt_separator: <!-- more -->
+
+# Automatically excerpt description in homepage as preamble text.
+# 自动摘录description作为主页的序言文本
+excerpt_description: true
+
+# Automatically Excerpt. Not recommend. -- 自动形成摘要(不建议)
+# 自动摘录spost.content的length 形成摘要显示在首页
+# Please use <!-- more --> in the post to control excerpt accurately.
+auto_excerpt:
+  enable: false
+  length: 150
+
+# Post meta display settings -- 文章列表显示信息
+post_meta:
+  item_text: true
+  created_at: true
+  updated_at: false # 显示文章更新时间
+  categories: true
+
+# Post wordcount display settings
+# Dependencies: https://github.com/willin/hexo-wordcount
+post_wordcount:
+  item_text: true
+  wordcount: false
+  min2read: false
+  totalcount: false
+  separated_meta: true
+
+
+# ---------------------------------------------------------------
+# Wechat Subscriber -- 微信公众号订阅设置
+# ---------------------------------------------------------------
+#wechat_subscriber:
+  #enabled: true
+  #qcode: /assets/images/wechat-qcode.jpg
+  #description: 欢迎您扫一扫上面的微信公众号，订阅我的博客！
+
+# ---------------------------------------------------------------
+# Reward Settings -- 打赏设置
+# ---------------------------------------------------------------
+reward_comment: 打赏链接还是要有的，万一真的有人捐呢，感谢您的支持！
+wechatpay: /assets/images/wechatpay.png
+alipay: /assets/images/alipay.png
+#bitcoin: /images/bitcoin.png
+
+# Declare license on posts
+post_copyright:
+  enable: false
+  license: CC BY-NC-SA 3.0
+  license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
+
+
+# ---------------------------------------------------------------
+# Misc Theme Settings -- Misc主题设置
+# ---------------------------------------------------------------
+
+# Reduce padding / margin indents on devices with narrow width.
+mobile_layout_economy: false
+
+# Android Chrome header panel color ($black-deep).
+android_chrome_color: "#222"
+
+# Custom Logo. -- 自定义logo
+# !!Only available for Default Scheme currently. -- 只对默认主题（Muse）生效
+# Options:
+#   enabled: [true/false] - Replace with specific image
+#   image: url-of-image   - Images's url
+custom_logo:
+  enabled: false
+  image:
+
+# Code Highlight theme -- 设置代码高亮
+# Available value:
+#    normal | night | night eighties | night blue | night bright
+# https://github.com/chriskempson/tomorrow-theme
+highlight_theme: normal
+
+
+# ---------------------------------------------------------------
+# Font Settings -- 字体设置
+# - Find fonts on Google Fonts (https://www.google.com/fonts)
+# - All fonts set here will have the following styles:
+#     light, light italic, normal, normal italic, bold, bold italic
+# - Be aware that setting too much fonts will cause site running slowly
+# - Introduce in 5.0.1
+# ---------------------------------------------------------------
+# CAUTION! Safari Version 10.1.2 bug: https://github.com/iissnan/hexo-theme-next/issues/1844
+# To avoid space between header and sidebar in Pisces / Gemini themes recommended to use Web Safe fonts for `global` (and `logo`):
+# Arial | Tahoma | Helvetica | Times New Roman | Courier New | Verdana | Georgia | Palatino | Garamond | Comic Sans MS | Trebuchet MS
+# ---------------------------------------------------------------
+font:
+  enable: false
+
+  # Uri of fonts host. E.g. //fonts.googleapis.com (Default).
+  # 外链字体库地址，例如 //fonts.googleapis.com (默认值)
+  host:
+
+  # Font options:
+  # `external: true` will load this font family from `host` above.
+  # `family: Times New Roman`. Without any quotes.
+  # `size: xx`. Use `px` as unit.
+
+  # Global font settings used on <body> element.
+  global:
+    external: true
+    family: Lato
+    size:
+
+  # Font settings for Headlines (h1, h2, h3, h4, h5, h6).
+  # Fallback to `global` font settings.
+  headings:
+    external: true
+    family:
+    size:
+
+  # Font settings for posts.
+  # Fallback to `global` font settings.
+  posts:
+    external: true
+    family:
+
+  # Font settings for Logo.
+  # Fallback to `global` font settings.
+  logo:
+    external: true
+    family:
+    size:
+
+  # Font settings for <code> and code blocks.
+  codes:
+    external: true
+    family:
+    size:
+
+
+# ---------------------------------------------------------------
+# Third Party Services Settings -- 第三方服务设置
+# ---------------------------------------------------------------
+
+# MathJax Support
+mathjax:
+  enable: false
+  per_page: false
+  cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
+
+# Han Support docs: https://hanzi.pro/
+han: false
+
+# Swiftype Search API Key -- Swiftype站内搜索
+#swiftype_key:
+
+# Baidu Analytics ID -- 百度统计
+#baidu_analytics:
+
+# Duoshuo ShortName -- 多说评论系统
+#duoshuo_shortname:
+
+# Disqus -- Disqus评论系统
+disqus:
+  enable: false
+  shortname:
+  count: true  # count 用于指定是否显示评论数量
+  # hide comments (visitors need to click to load the comments)
+  # count need to be false when hide is true
+  hide: false
+
+# Hypercomments
+#hypercomments_id:
+
+# changyan -- 畅言评论系统
+changyan:
+  enable: false
+  appid:
+  appkey:
+
+# Gentie productKey -- 网易云跟帖
+#gentie_productKey:
+
+# Valine.
+# You can get your appid and appkey from https://leancloud.cn
+# more info please open https://valine.js.org
+valine:
+  enable: false
+  appid:  # your leancloud application appid
+  appkey:  # your leancloud application appkey
+  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+  verify: false # Verification code
+  placeholder: Just go go # comment box placeholder
+  avatar: mm # gravatar style
+  guest_info: nick,mail,link # custom comment header
+  pageSize: 10 # pagination size
+
+
+# Support for youyan comments system.
+# You can get your uid from http://www.uyan.cc
+#youyan_uid: your uid
+
+# Support for LiveRe comments system. -- 来必力
+# You can get your uid from https://livere.com/insight/myCode (General web site)
+#livere_uid: your uid
+
+# Gitment
+# Introduction: https://imsun.net/posts/gitment-introduction/
+# You can get your Github ID from https://api.github.com/users/<Github username>
+gitment:
+  enable: false
+  mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
+  count: true # Show comments count in post meta area
+  lazy: false # Comments lazy loading with a button
+  cleanly: false # Hide 'Powered by ...' on footer, and more
+  # Force language, or auto switch by theme
+  language: zh-Hans
+  github_user: # MUST HAVE, Your Github ID
+  github_repo: # MUST HAVE, The repo you use to store Gitment comments
+  client_id: # MUST HAVE, Github client id for the Gitment
+  client_secret: # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
+  redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
+
+# Baidu Share -- 百度分享
+# Available value:
+#    button | slide
+# Warning: Baidu Share does not support https.
+#baidushare:
+##  type: button
+
+# Share
+# This plugin is more useful in China, make sure you known how to use it.
+# And you can find the use guide at official webiste: http://www.jiathis.com/.
+# Warning: JiaThis does not support https.
+#jiathis:
+  ##uid: Get this uid from http://www.jiathis.com/
+#add_this_id:
+
+# Share
+#duoshuo_share: true
+
+# NeedMoreShare2
+# This plugin is a pure javascript sharing lib which is useful in China.
+# See: https://github.com/revir/need-more-share2
+# Also see: https://github.com/DzmVasileusky/needShareButton
+# iconStyle: default | box
+# boxForm: horizontal | vertical
+# position: top / middle / bottom + Left / Center / Right
+# networks: Weibo,Wechat,Douban,QQZone,Twitter,Linkedin,Mailto,Reddit,
+#           Delicious,StumbleUpon,Pinterest,Facebook,GooglePlus,Slashdot,
+#           Technorati,Posterous,Tumblr,GoogleBookmarks,Newsvine,
+#           Evernote,Friendfeed,Vkontakte,Odnoklassniki,Mailru
+needmoreshare2:
+  enable: false
+  postbottom:
+    enable: false
+    options:
+      iconStyle: box
+      boxForm: horizontal
+      position: bottomCenter
+      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+  float:
+    enable: false
+    options:
+      iconStyle: box
+      boxForm: horizontal
+      position: middleRight
+      networks: Weibo,Wechat,Douban,QQZone,Twitter,Facebook
+
+# Google Webmaster tools verification setting
+# See: https://www.google.com/webmasters/
+#google_site_verification:
+
+# Google Analytics -- 谷歌统计
+#google_analytics:
+
+# Bing Webmaster tools verification setting
+# See: https://www.bing.com/webmaster/
+#bing_site_verification:
+
+# Yandex Webmaster tools verification setting
+# See: https://webmaster.yandex.ru/
+#yandex_site_verification:
+
+# CNZZ count -- CNZZ统计
+#cnzz_siteid:
+
+# Application Insights
+# See https://azure.microsoft.com/en-us/services/application-insights/
+# application_insights:
+
+# Make duoshuo show UA
+# user_id must NOT be null when admin_enable is true!
+# you can visit http://dev.duoshuo.com get duoshuo user id.
+duoshuo_info:
+  ua_enable: true
+  admin_enable: false
+  user_id: 0
+  #admin_nickname: Author
+
+# Post widgets & FB/VK comments settings.
+# ---------------------------------------------------------------
+# Facebook SDK Support.
+# https://github.com/iissnan/hexo-theme-next/pull/410
+facebook_sdk:
+  enable:       false
+  app_id:       #<app_id>
+  fb_admin:     #<user_id>
+  like_button:  #true
+  webmaster:    #true
+
+# Facebook comments plugin
+# This plugin depends on Facebook SDK.
+# If facebook_sdk.enable is false, Facebook comments plugin is unavailable.
+facebook_comments_plugin:
+  enable:       false
+  num_of_posts: 10    # min posts num is 1
+  width:        100%  # default width is 550px
+  scheme:       light # default scheme is light (light or dark)
+
+# VKontakte API Support.
+# To get your AppID visit https://vk.com/editapp?act=create
+vkontakte_api:
+  enable:       false
+  app_id:       #<app_id>
+  like:         true
+  comments:     true
+  num_of_posts: 10
+
+# Star rating support to each article.
+# To get your ID visit https://widgetpack.com
+rating:
+  enable: false
+  id:     #<app_id>
+  color:  fc6423
+# ---------------------------------------------------------------
+
+# Show number of visitors to each article. -- 阅读量设置
+# You can visit https://leancloud.cn get AppID and AppKey.
+leancloud_visitors:
+  enable: false
+  app_id: #<app_id>
+  app_key: #<app_key>
+
+# Another tool to show number of visitors to each article.
+# visit https://console.firebase.google.com/u/0/ to get apiKey and projectId
+# visit https://firebase.google.com/docs/firestore/ to get more information about firestore
+firestore:
+  enable: false
+  collection: articles #required, a string collection name to access firestore database
+  apiKey: #required
+  projectId: #required
+  bluebird: false #enable this if you want to include bluebird 3.5.1(core version) Promise polyfill
+
+# 不蒜子统计
+# Show PV/UV of the website/page with busuanzi.
+# Get more information on http://ibruce.info/2015/04/04/busuanzi/
+busuanzi_count:
+  # count values only if the other configs are false
+  enable: true
+   # custom uv span for the whole site -- 本站访客数
+  # uv的方式：单个用户连续点击n篇文章，只记录1次访客数。
+  # 代码路径：_includes > _third-party > analytics > busuanzi-counter.html
+  site_uv: true
+  # site_uv_header: <i class="fa fa-user"></i>
+  # site_uv_footer:
+  site_uv_header: '您是本站第'
+  site_uv_footer: '位访问者'
+  # custom pv span for the whole site
+   # custom pv span for the whole site -- 本站总访问量 xxx 次
+  # pv的方式：单个用户连续点击n篇文章，记录n次访问量。
+  site_pv: true
+  # site_pv_header: <i class="fa fa-eye"></i>
+  # site_pv_footer:
+  site_pv_header: '本站总访问量'
+  site_pv_footer: '次'
+  # custom pv span for one page only -- 本文总阅读量
+  # pv的方式，单个用户点击1篇文章，本篇文章记录1次阅读量。
+  # 代码路径：_includes > _macro > post.html > #id=busuanzi_value_page_pv
+  page_pv: true
+  # page_pv_header: <i class="fa fa-file-o"></i>
+  # page_pv_footer:
+  page_pv_header: '<i class="fa fa-eye"></i> 阅读'
+  page_pv_footer: '次'
+
+
+# Tencent analytics ID
+# tencent_analytics:
+
+# Tencent MTA ID
+# tencent_mta:
+
+
+# Enable baidu push so that the blog will push the url to baidu automatically which is very helpful for SEO
+baidu_push: false
+
+# Google Calendar
+# Share your recent schedule to others via calendar page
+#
+# API Documentation:
+# https://developers.google.com/google-apps/calendar/v3/reference/events/list
+calendar:
+  enable: false
+  calendar_id: <required>
+  api_key: <required>
+  orderBy: startTime
+  offsetMax: 24
+  offsetMin: 4
+  timeZone:
+  showDeleted: false
+  singleEvents: true
+  maxResults: 250
+
+# Algolia Search -- 搜索服务
+algolia_search:
+  enable: false
+  hits:
+    per_page: 10
+  labels:
+    input_placeholder: Search for Posts
+    hits_empty: "We didn't find any results for the search: ${query}"
+    hits_stats: "${hits} results found in ${time} ms"
+
+# Local search
+# Dependencies: https://github.com/flashlab/hexo-generator-search
+local_search:
+  enable: true
+  # if auto, trigger search by changing input
+  # if manual, trigger search by pressing enter key or search button
+  trigger: auto
+  # show top n results per article, show all results by setting to -1
+  top_n_per_article: 1
+
+
+# ---------------------------------------------------------------
+# Tags Settings
+# ---------------------------------------------------------------
+
+# External URL with BASE64 encrypt & decrypt.
+# Usage: {% exturl text url "title" %}
+# Alias: {% extlink text url "title" %}
+exturl: false
+
+# Note tag (bs-callout).
+note:
+  # Note tag style values:
+  #  - simple    bs-callout old alert style. Default.
+  #  - modern    bs-callout new (v2-v3) alert style.
+  #  - flat      flat callout style with background, like on Mozilla or StackOverflow.
+  #  - disabled  disable all CSS styles import of note tag.
+  style: simple
+  icons: false
+  border_radius: 3
+  # Offset lighter of background in % for modern and flat styles (modern: -12 | 12; flat: -18 | 6).
+  # Offset also applied to label tag variables. This option can work with disabled note tag.
+  light_bg_offset: 0
+
+# Label tag.
+label: true
+
+# Tabs tag.
+tabs:
+  enable: true
+  transition:
+    tabs: false
+    labels: true
+  border_radius: 0
+
+
+#! ---------------------------------------------------------------
+#! DO NOT EDIT THE FOLLOWING SETTINGS
+#! UNLESS YOU KNOW WHAT YOU ARE DOING
+#! ---------------------------------------------------------------
+
+# Use velocity to animate everything.
+# Motion -- 动画效果
+motion:
+  enable: true
+  async: false
+  transition:
+    # Transition variants:
+    # fadeIn | fadeOut | flipXIn | flipXOut | flipYIn | flipYOut | flipBounceXIn | flipBounceXOut | flipBounceYIn | flipBounceYOut
+    # swoopIn | swoopOut | whirlIn | whirlOut | shrinkIn | shrinkOut | expandIn | expandOut
+    # bounceIn | bounceOut | bounceUpIn | bounceUpOut | bounceDownIn | bounceDownOut | bounceLeftIn | bounceLeftOut | bounceRightIn | bounceRightOut
+    # slideUpIn | slideUpOut | slideDownIn | slideDownOut | slideLeftIn | slideLeftOut | slideRightIn | slideRightOut
+    # slideUpBigIn | slideUpBigOut | slideDownBigIn | slideDownBigOut | slideLeftBigIn | slideLeftBigOut | slideRightBigIn | slideRightBigOut
+    # perspectiveUpIn | perspectiveUpOut | perspectiveDownIn | perspectiveDownOut | perspectiveLeftIn | perspectiveLeftOut | perspectiveRightIn | perspectiveRightOut
+    post_block: fadeIn
+    post_header: slideDownIn
+    post_body: slideDownIn
+    coll_header: slideLeftIn
+    # Only for Pisces | Gemini.
+    sidebar: slideUpIn
+
+# Fancybox
+fancybox: true
+
+# Progress bar in the top during page loading.
+pace: false
+# Themes list:
+#pace-theme-big-counter
+#pace-theme-bounce
+#pace-theme-barber-shop
+#pace-theme-center-atom
+#pace-theme-center-circle
+#pace-theme-center-radar
+#pace-theme-center-simple
+#pace-theme-corner-indicator
+#pace-theme-fill-left
+#pace-theme-flash
+#pace-theme-loading-bar
+#pace-theme-mac-osx
+#pace-theme-minimal
+# For example
+# pace_theme: pace-theme-center-simple
+pace_theme: pace-theme-minimal
+
+# Background Motion背景动画
+# Canvas-nest
+canvas_nest: true
+
+# three_waves -- version >= 5.1.1
+three_waves: false
+
+# canvas_lines
+canvas_lines: false
+
+# canvas_sphere
+canvas_sphere: false
+
+# Only fit scheme Pisces
+# Canvas-ribbon
+# size: The width of the ribbon.
+# alpha: The transparency of the ribbon.
+# zIndex: The display level of the ribbon.
+canvas_ribbon:
+  enable: false
+  size: 300
+  alpha: 0.6
+  zIndex: -1
+
+# Script Vendors.
+# Set a CDN address for the vendor you want to customize.
+# For example
+#    jquery: https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js
+# Be aware that you should use the same version as internal ones to avoid potential problems.
+# Please use the https protocol of CDN files when you enable https on your site.
+vendors:
+  # Internal path prefix. Please do not edit it.
+  _internal: lib
+
+  # Internal version: 2.1.3
+  jquery:
+
+  # Internal version: 2.1.5
+  # See: http://fancyapps.com/fancybox/
+  fancybox:
+  fancybox_css:
+
+  # Internal version: 1.0.6
+  # See: https://github.com/ftlabs/fastclick
+  fastclick:
+
+  # Internal version: 1.9.7
+  # See: https://github.com/tuupola/jquery_lazyload
+  lazyload:
+
+  # Internal version: 1.2.1
+  # See: http://VelocityJS.org
+  velocity:
+
+  # Internal version: 1.2.1
+  # See: http://VelocityJS.org
+  velocity_ui:
+
+  # Internal version: 0.7.9
+  # See: https://faisalman.github.io/ua-parser-js/
+  ua_parser:
+
+  # Internal version: 4.6.2
+  # See: http://fontawesome.io/
+  fontawesome:
+
+  # Internal version: 1
+  # https://www.algolia.com
+  algolia_instant_js:
+  algolia_instant_css:
+
+  # Internal version: 1.0.2
+  # See: https://github.com/HubSpot/pace
+  # Or use direct links below:
+  # pace: //cdn.bootcss.com/pace/1.0.2/pace.min.js
+  # pace_css: //cdn.bootcss.com/pace/1.0.2/themes/blue/pace-theme-flash.min.css
+  pace:
+  pace_css:
+
+  # Internal version: 1.0.0
+  # https://github.com/hustcc/canvas-nest.js
+  canvas_nest:
+
+  # three
+  three:
+
+  # three_waves
+  # https://github.com/jjandxa/three_waves
+  three_waves:
+
+  # three_waves
+  # https://github.com/jjandxa/canvas_lines
+  canvas_lines:
+
+  # three_waves
+  # https://github.com/jjandxa/canvas_sphere
+  canvas_sphere:
+
+  # Internal version: 1.0.0
+  # https://github.com/zproo/canvas-ribbon
+  canvas_ribbon:
+
+  # Internal version: 3.3.0
+  # https://github.com/ethantw/Han
+  han:
+
+  # needMoreShare2
+  # https://github.com/revir/need-more-share2
+  needMoreShare2:
+
+
+# Assets
+css: css
+js: js
+images: images
+
+# Theme version
+version: 5.1.4

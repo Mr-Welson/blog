@@ -1,0 +1,209 @@
+---
+layout: post
+title: 图片墙
+date: 2017-10-23
+categories:
+ - JavaScript
+tags: [JavaScript, demo]
+
+---
+<p>图片加载较慢，需要耐心等待。。。</p>
+<div id="photo-wall" data-switch="off"></div>
+<!-- more -->
+<script>
+	/**
+	 * [createWall description]
+	 * @param  {[type]} id      [容器id]
+	 * @param  {[type]} imgUrls [图片源]
+	 * @param  {[type]} rows    [行]
+	 * @param  {[type]} cols    [列]
+	 * @param  {[type]} gap     [图片间隙]
+	 * @param  {[type]} type    [容器的宽度]
+	 * @param  {[type]} sWight  [容器的高度]
+	 * @param  {[type]} sHeight [容器的高度]
+	 * @param  {[type]} imgHeight [图片的高度]
+	 * @param  {[type]} imgHeight [图片的高度]
+	 * 
+	 */
+	var ImgWall = (function(){
+		// 配置项
+		var _option = {
+			id:'', 
+			imgUrls:[],
+			rows:1,
+			cols:1,
+			gap:5,
+			sWidth:100,
+			sHeight:100
+		}
+		var _pictureWall = {
+			init: function(config){
+				if(!config.id){
+					return alert('请输入id')
+				}
+				for(var key in config){
+					_option[key] = config[key]
+				}
+				this.createWall(_option)
+			},
+			// 创建照片墙
+			createWall: function(config){
+				var id = config.id;
+				var imgUrls = config.imgUrls;
+				var rows = config.rows;
+				var cols = config.cols;
+				var gap = config.gap;
+				var sWidth = config.sWidth;
+				var sHeight = config.sHeight;
+				var _this = this;
+				var oWall = document.getElementById(config.id);
+		  	oWall.style.width = sWidth + 'px';
+		  	oWall.style.height = sHeight + 'px';
+	      oWall.style.boxSizing = "border-box";
+	      oWall.style.overflow = "hidden";
+	      oWall.style['-webkit-transition'] = "all 1s linear";
+	      oWall.style['-moz-transition'] = "all 1s linear";
+	      oWall.style['-ms-transition'] = "all 1s linear";
+	      oWall.style['-o-transition'] = "all 1s linear";
+	      oWall.style['transition'] = "all 1s linear";
+		  	var imgWidth = (sWidth-cols*gap*2)/cols;
+		  	var imgHeight = (sHeight-rows*gap*2)/rows;
+		  	imgUrls.map(function(v,k) {
+		  		var oDiv = document.createElement('div')
+		  		oDiv.setAttribute('data-idx',k);
+		  		oDiv.style.float = 'left';
+					oDiv.style.backgroundImage = 'url('+ v +')';
+		  		oDiv.style.backgroundSize = '100% 100%';
+		  		oDiv.style.width = imgWidth + 'px';
+		  		oDiv.style.height = imgHeight + 'px';
+		  		oDiv.style.margin = gap + 'px';
+		  		oDiv.style.cursor = "pointer";
+	        oDiv.style['-webkit-transition'] = "all 1s linear";
+	        oDiv.style['-moz-transition'] = "all 1s linear";
+	        oDiv.style['-ms-transition'] = "all 1s linear";
+	        oDiv.style['-o-transition'] = "all 1s linear";
+	        oDiv.style['transition'] = "all 1s linear";
+		  		oDiv.addEventListener('click',function(){
+		  			_this.switchShow(id,k)
+		  		})
+		  		oWall.appendChild(oDiv)
+		  	})
+			},
+			// 切换显示方式
+			switchShow: function(id,idx){
+				var oWall = document.getElementById(id);
+				var children = oWall.getElementsByTagName('div');
+				// 将dom变为真正的数组
+				children = Array.prototype.slice.call(children); 
+			  var switchFlag = oWall.getAttribute('data-switch') === 'off';
+			  // off: 照片墙，on: 全屏
+				oWall.setAttribute('data-switch',switchFlag?'on':'off');
+				if(switchFlag){
+					this.bigModel(children,idx)
+				}else{
+					this.wallModel(children,idx)
+				}
+			},
+			// 1图模式
+			bigModel: function(children,idx){
+				// 根据_option设置背景图位置
+	      var oWall = document.getElementById(_option.id);
+	      oWall.style.padding = _option.gap*_option.rows+"px"+" "+_option.gap*_option.cols+"px";
+				var width = children[0].offsetWidth;
+				var height = children[0].offsetHeight;
+				children.map(function(v,k) {
+					var positionX = width*(-k%_option.cols)+"px";
+					var positionY = -height*Math.floor(k/_option.cols)+"px";
+	        v.style.backgroundImage = "url("+_option.imgUrls[idx]+")";
+	        v.style.backgroundPosition = positionX+" "+positionY;
+	        v.style.backgroundSize = (_option.sWidth-_option.gap*_option.cols*2)+"px "+(_option.sHeight-_option.gap*_option.rows*2)+"px";
+					v.style.margin = 0;
+	      })
+			},
+			// 照片墙模式
+			wallModel: function(children,idx){
+	      var oWall = document.getElementById(_option.id);
+	      oWall.style.padding = "0";
+	      children.map(function(v,k) {
+	        v.style.backgroundImage = "url("+_option.imgUrls[k]+")"
+	        v.style.backgroundPosition = "0 0";
+	        v.style.backgroundSize = "100% 100%";
+	        v.style.margin = _option.gap + "px";
+	      })
+			}
+		}
+		return _pictureWall
+	}())
+
+	var imgUrls = [
+		'/static/images/img/1.jpg',
+	  '/static/images/img/2.jpg',
+	  '/static/images/img/3.jpg',
+	  '/static/images/img/4.jpg',
+		'/static/images/img/5.jpg',
+	  '/static/images/img/6.jpg',
+	  '/static/images/img/7.jpg',
+	  '/static/images/img/8.jpg',
+		'/static/images/img/9.jpg',
+	  '/static/images/img/10.jpg',
+	  '/static/images/img/11.jpg',
+	  '/static/images/img/12.jpg',
+	]
+
+	// 将url转化为base64
+	function convertImgToBase64(url, callback){
+	  var canvas = document.createElement('canvas');
+	  var ctx = canvas.getContext('2d');
+	  var img = new Image();
+	  img.crossOrigin = 'Anonymous';
+	  img.onload = function(){
+	    canvas.height = img.height;
+	    canvas.width = img.width;
+	    ctx.drawImage(img,0,0);
+	    var dataURL = canvas.toDataURL('image/png');
+	    callback.call(this, dataURL);
+	    canvas = null;
+	  };
+	  img.src = url;
+	}
+
+	/*imgUrls.map(v => {
+		// 转换base64
+		convertImgToBase64(v,function(base64Img) {
+			v = base64Img
+			console.log('base64',v)
+		})
+	})*/
+
+	/*
+	 	配置项：
+		1. 尺寸配置size: 
+			1. 比例显示：默认16:9
+			2. 固定宽高：单位px
+		2. 显示样式type:
+			1. 放大缩小：
+			2. 其他方式
+	 */
+
+	var config = {
+		id: 'photo-wall',
+		imgUrls: imgUrls,
+		rows: 3,
+		cols: 4,
+		gap: 10,
+		sWidth: 640, // (imgWidth+gap*2)*cols
+		sHeight: 360,// (imgHeight+gap*2)*rows
+	}
+
+	// 移动端监测
+	if(navigator.userAgent.match(/(iPhone|iPod|Android|ios|webOS|iPad|BlackBerry|Windows Phone|Symbian)/i)){
+	  // alert(navigator.userAgent)
+	  var width = window.screen.availWidth*0.8
+	  var height = ((width/config.cols-config.gap*2)*9/16+config.gap*2)*config.rows
+	  config.sWidth = width
+	  config.sHeight = height
+	}
+
+	ImgWall.init(config)
+
+</script>
