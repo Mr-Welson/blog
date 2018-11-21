@@ -19,6 +19,7 @@ url: "https://mr-welson.github.io"
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
+  
 
 # Directory
 source_dir: source
@@ -78,11 +79,12 @@ pagination_dir: page # 分页目录
 # theme: landscape
 theme: next
 
-# Deployment
+# Deployment -- 部署（发布）静态文件
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: # deploy
-  type:
-
+  type: git
+  repo: git@github.com:Mr-Welson/Mr-Welson.github.io.git
+  branch: master
 # ---------------------------------------------------------------
 # local_search -- 本地搜索设置
 # ---------------------------------------------------------------
