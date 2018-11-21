@@ -20,7 +20,8 @@ root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
   
-
+  
+  
 # Directory
 source_dir: source
 public_dir: public # 公共文件夹，这个文件夹用于存放生成的站点文件
