@@ -5,7 +5,7 @@ categories:
 tag:
   - 笔记
   - 博客
-  - gitPage
+  - GitHub Page
 date: 2018-11-20 18:42:14
 ---
 
@@ -32,30 +32,66 @@ date: 2018-11-20 18:42:14
 
 ### 常用命令
 
-```
-// 启动服务器，预览 _post 文件夹。默认情况下，访问网址为： http://localhost:4000/
-hexo server
+- 启动服务器，默认访问网址为： http://localhost:4000/
 
-// 启动服务器，预览 _post 和 _drafts 文件夹
-hexo server --drafts
+  ```
+  // 预览 _post 文件夹
+  hexo server
+  
+  // 预览 _post 和 _drafts 文件夹
+  hexo server --drafts
+  ```
 
-// 清除缓存文件 (db.json) 和已生成的静态文件 (public)
-// 在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。
-hexo clean
+- 清除缓存文件 ( db.json ) 和已生成的静态文件 ( public )
 
-// 创建一篇新文章
-hexo new [layout] <title>
+  ```
+  // 在某些情况（尤其是更换主题后），如果发现您对站点的更改无论如何也不生效，您可能需要运行该命令。
+  hexo clean
+  ```
 
-// 新建草稿(默认生成) test
-hexo new draft test
+- 新建文章
 
-// 发布草稿test
-hexo publish draft test
+  ```
+  hexo new [layout] <title>
+  ```
 
+- 新建草稿
 
+  ```
+  hexo new draft test
+  ```
 
-```
+- 发布草稿
 
+  ```
+  hexo publish test
+  ```
+
+- 生成静态文件
+
+  ```
+  hexo generate
+  
+  // 静态文件热更新
+  // 监视文件变动并立即重新生成静态文件，在生成时会比对文件的 SHA1 checksum，只有变动的文件才会写入
+  hexo generate --watch
+  
+  ```
+
+- 部署 （发布）
+
+  ```
+  hexo deploy
+  
+  
+  // 以下均可
+  hexo generate --deploy
+  hexo deploy --generate
+  
+  // 简写
+  hexo g -d
+  hexo d -g
+  ```
 
 
 
