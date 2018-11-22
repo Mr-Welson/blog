@@ -257,7 +257,7 @@ theme: next
 
 ### 文章显示更多
 
-**1.**  在 `主题配置文件` 中 设置 excerpt_separator
+**1.**  在 `主题配置文件` 中任意一个地方设置 excerpt_separator，新版本可以跳过这一步
 
 ```
 # excerpt_separator 摘要分隔符
