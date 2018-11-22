@@ -214,6 +214,8 @@ theme: next
 |   |   ├── _header.swig    #自定义头部
 |   |   ├── _sidebar.swig   #自定义侧边栏
 |   ├── _macro        #可以自己修改的模板，覆盖原有模板
+|   ├── ├── post-collapse.swig    #
+|   ├── ├── post-copyright.swig    #文章版权协议模板
 |   |   ├── post.swig    #文章模板
 |   |   ├── reward.swig    #打赏模板
 |   |   ├── sidebar.swig   #侧边栏模板

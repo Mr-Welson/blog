@@ -204,29 +204,38 @@
             {% endif %}
           {% endif %}
 
-          {# 阅读量 LeanCould统计 #}
+          {# 本文阅读量 LeanCould统计 #}
           {% if theme.leancloud_visitors.enable %}
-             <span id="{{ url_for(post.path) }}" class="leancloud_visitors" data-flag-title="{{ post.title }}">
-               <span class="post-meta-divider">|</span>
+            <span id="{{ url_for(post.path) }}" class="leancloud_visitors" data-flag-title="{{ post.title }}">
+              <span class="post-meta-divider">|</span>
+              {# 自定义显示 #}
+              <span class="page-pv">
+                {{ theme.leancloud_visitors.page_pv_header }}
+                <span class="leancloud-visitors-count"></span>
+                {{ theme.leancloud_visitors.page_pv_footer }}
+              </span>
+              {# 隐藏原有显示
                <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
+                 <i class="fa fa-eye"></i> 阅读
                </span>
                {% if theme.post_meta.item_text %}
                  <span class="post-meta-item-text">{{__('post.visitors')}}&#58;</span>
                {% endif %}
                  <span class="leancloud-visitors-count"></span>
+              #}
              </span>
           {% endif %}
 
-          {# 阅读量 不蒜子统计 #}
+          {# 本文阅读量 不蒜子统计 首页不显示 
           {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.page_pv %}
             <span class="post-meta-divider">|</span>
-            <span class="page-pv">
+            <span class="page-pv" id="busuanzi_container_page_pv">
               {{ theme.busuanzi_count.page_pv_header }}
-              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
               {{ theme.busuanzi_count.page_pv_footer }}
             </span>
           {% endif %}
+          #}
 
           {# 字数统计 #}
           {% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %}
@@ -264,7 +273,7 @@
             </div>
           {% endif %}
 
-          {# 字数统计 #}
+          {# 摘要 #}
           {% if post.description and (not theme.excerpt_description or not is_index) %}
               <div class="post-description">
                   {{ post.description }}
@@ -299,6 +308,7 @@
         </div>
       {% endif %}
 
+      {# 首页显示更多 默认显示 post.excerpt  #}
       {% if is_index %}
         {% if post.description and theme.excerpt_description %}
           {{ post.description }}
@@ -315,6 +325,7 @@
           <div class="post-button text-center">
             <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
               {{ __('post.read_more') }} &raquo;
+              <span class="222"></span>
             </a>
           </div>
           <!--/noindex-->
@@ -344,18 +355,21 @@
     {### END POST BODY ###}
     {#####################}
 
+    {# 微信公众号订阅 #}
     {% if theme.wechat_subscriber.enabled and not is_index %}
       <div>
         {% include 'wechat-subscriber.swig' %}
       </div>
     {% endif %}
 
+    {# 文章打赏设置 #}
     {% if (theme.alipay or theme.wechatpay or theme.bitcoin) and not is_index %}
       <div>
         {% include 'reward.swig' %}
       </div>
     {% endif %}
 
+    {# 文章版权声明 #}
     {% if theme.post_copyright.enable and not is_index %}
       <div>
         {% include 'post-copyright.swig' with { post: post } %}
@@ -363,6 +377,7 @@
     {% endif %}
 
     <footer class="post-footer">
+      {# 文章归属标签 #}
       {% if post.tags and post.tags.length and not is_index %}
         <div class="post-tags">
           {% for tag in post.tags %}
@@ -371,45 +386,47 @@
         </div>
       {% endif %}
 
+      {# 文章排名 #}
       {% if not is_index %}
-      {% if theme.rating.enable or (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) or (theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable) %}
-        <div class="post-widgets">
-        {% if theme.rating.enable %}
-          <div class="wp_rating">
-            <div id="wpac-rating"></div>
-          </div>
-        {% endif %}
-
-        {% if (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) %}
-          <div class="social-like">
-            {% if theme.vkontakte_api.enable and theme.vkontakte_api.like %}
-              <div class="vk_like">
-                <span id="vk_like"></span>
-              </div>
-            {% endif %}
-
-            {% if theme.facebook_sdk.enable and theme.facebook_sdk.like_button %}
-              <div class="fb_like">
-                <div class="fb-like" data-layout="button_count" data-share="true"></div>
-              </div>
-            {% endif %}
-          </div>
-        {% endif %}
-
-        {% if theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable %}
-          {% if (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) %}
-            <span class="post-meta-divider">|</span>
+        {% if theme.rating.enable or (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) or (theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable) %}
+          <div class="post-widgets">
+          {% if theme.rating.enable %}
+            <div class="wp_rating">
+              <div id="wpac-rating"></div>
+            </div>
           {% endif %}
-          <div id="needsharebutton-postbottom">
-            <span class="btn">
-              <i class="fa fa-share-alt" aria-hidden="true"></i>
-            </span>
+
+          {% if (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) %}
+            <div class="social-like">
+              {% if theme.vkontakte_api.enable and theme.vkontakte_api.like %}
+                <div class="vk_like">
+                  <span id="vk_like"></span>
+                </div>
+              {% endif %}
+
+              {% if theme.facebook_sdk.enable and theme.facebook_sdk.like_button %}
+                <div class="fb_like">
+                  <div class="fb-like" data-layout="button_count" data-share="true"></div>
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+
+          {% if theme.needmoreshare2.enable and theme.needmoreshare2.postbottom.enable %}
+            {% if (theme.vkontakte_api.enable and theme.vkontakte_api.like) or (theme.facebook_sdk.enable and theme.facebook_sdk.like_button) %}
+              <span class="post-meta-divider">|</span>
+            {% endif %}
+            <div id="needsharebutton-postbottom">
+              <span class="btn">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+              </span>
+            </div>
+          {% endif %}
           </div>
         {% endif %}
-        </div>
-      {% endif %}
       {% endif %}
 
+      {# 上一页 下一页 #}
       {% if not is_index and (post.prev or post.next) %}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">

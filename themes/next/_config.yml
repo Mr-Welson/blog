@@ -229,7 +229,7 @@ sidebar:
 # Post Settings -- 文章发布设置
 # ---------------------------------------------------------------
 # Automatically scroll page to section which is under <!-- more --> mark.
-scroll_to_more: true
+scroll_to_more: false
 
 # Automatically saving scroll position on each post/page in cookies.
 # 保存页面滚动位置
@@ -261,9 +261,9 @@ post_meta:
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: true # 字数统计
-  min2read: true # 阅读时长预计
-  totalcount: true # 总字数统计
+  wordcount: true # 文章字数统计
+  min2read: true # 文章阅读时长预计
+  totalcount: true # 网站总字数统计
   separated_meta: true
 
 
@@ -283,9 +283,9 @@ wechatpay: /assets/images/wechatpay.png
 alipay: /assets/images/alipay.png
 #bitcoin: /images/bitcoin.png
 
-# Declare license on posts
+# Declare license on posts -- 文章版权协议
 post_copyright:
-  enable: false
+  enable: true
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -574,7 +574,9 @@ rating:
 # Show number of visitors to each article. -- 阅读量设置
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
-  enable: false
+  enable: true
+  page_pv_header: '<i class="fa fa-eye"></i> 阅读'
+  page_pv_footer: '次'
   app_id: dzypYtzX31XqgMPyUck0K7Ee-gzGzoHsz
   app_key: UgiUCEKcXCUCnvv5EufCQNEC
 
