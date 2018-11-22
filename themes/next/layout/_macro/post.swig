@@ -1,3 +1,5 @@
+{#  文章主体内容  #}
+
 {% macro render(post, is_index, post_extra_class) %}
 
   {% set headlessPost = Array.prototype.indexOf.call(['quote', 'picture'], post.type) > -1 %}
@@ -61,6 +63,7 @@
         {% endif %}
 
         <div class="post-meta">
+          {# 发布时间 #}
           <span class="post-time">
             {% if theme.post_meta.created_at %}
               <span class="post-meta-item-icon">
@@ -91,6 +94,7 @@
             {% endif %}
           </span>
 
+          {# 文章分类于 #}
           {% if post.categories and post.categories.length and theme.post_meta.categories %}
             <span class="post-category" >
             {% if theme.post_meta.created_at or theme.post_meta.updated_at %}
@@ -117,6 +121,7 @@
             </span>
           {% endif %}
 
+          {# 文章评论数 #}
           {% if post.comments %}
             {% if (theme.duoshuo and theme.duoshuo.shortname) or theme.duoshuo_shortname %}
               <span class="post-comments-count">
@@ -199,7 +204,7 @@
             {% endif %}
           {% endif %}
 
-          {# LeanCould PageView #}
+          {# 阅读量 LeanCould统计 #}
           {% if theme.leancloud_visitors.enable %}
              <span id="{{ url_for(post.path) }}" class="leancloud_visitors" data-flag-title="{{ post.title }}">
                <span class="post-meta-divider">|</span>
@@ -213,13 +218,17 @@
              </span>
           {% endif %}
 
+          {# 阅读量 不蒜子统计 #}
           {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.page_pv %}
             <span class="post-meta-divider">|</span>
-            <span class="page-pv">{{ theme.busuanzi_count.page_pv_header }}
-            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>{{ theme.busuanzi_count.page_pv_footer }}
+            <span class="page-pv">
+              {{ theme.busuanzi_count.page_pv_header }}
+              <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+              {{ theme.busuanzi_count.page_pv_footer }}
             </span>
           {% endif %}
 
+          {# 字数统计 #}
           {% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %}
             <div class="post-wordcount">
               {% if theme.post_wordcount.wordcount %}
@@ -233,7 +242,7 @@
                   <span class="post-meta-item-text">{{ __('post.wordcount') }}&#58;</span>
                 {% endif %}
                 <span title="{{ __('post.wordcount') }}">
-                  {{ wordcount(post.content) }}
+                  {{ wordcount(post.content) }} 字
                 </span>
               {% endif %}
 
@@ -249,12 +258,13 @@
                   <span class="post-meta-item-text">{{ __('post.min2read') }} &asymp;</span>
                 {% endif %}
                 <span title="{{ __('post.min2read') }}">
-                  {{ min2read(post.content) }}
+                  {{ min2read(post.content) }} 分钟
                 </span>
               {% endif %}
             </div>
           {% endif %}
 
+          {# 字数统计 #}
           {% if post.description and (not theme.excerpt_description or not is_index) %}
               <div class="post-description">
                   {{ post.description }}

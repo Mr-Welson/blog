@@ -250,20 +250,20 @@ auto_excerpt:
   enable: false
   length: 150
 
-# Post meta display settings -- 文章列表显示信息
+# Post meta display settings -- 文章正文标题下的显示信息
 post_meta:
-  item_text: true
-  created_at: true
-  updated_at: false # 显示文章更新时间
-  categories: true
+  item_text: true # 显示'分类于'
+  created_at: true # 文章创建时间
+  updated_at: false # 文章更新时间 （更新时间和创建时间只显示一个）
+  categories: true # 显示文章分类
 
 # Post wordcount display settings
 # Dependencies: https://github.com/willin/hexo-wordcount
 post_wordcount:
   item_text: true
-  wordcount: false
-  min2read: false
-  totalcount: false
+  wordcount: true # 字数统计
+  min2read: true # 阅读时长预计
+  totalcount: true # 总字数统计
   separated_meta: true
 
 
@@ -575,8 +575,8 @@ rating:
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
   enable: false
-  app_id: #<app_id>
-  app_key: #<app_key>
+  app_id: dzypYtzX31XqgMPyUck0K7Ee-gzGzoHsz
+  app_key: UgiUCEKcXCUCnvv5EufCQNEC
 
 # Another tool to show number of visitors to each article.
 # visit https://console.firebase.google.com/u/0/ to get apiKey and projectId
@@ -612,10 +612,8 @@ busuanzi_count:
   site_pv_footer: '次'
   # custom pv span for one page only -- 本文总阅读量
   # pv的方式，单个用户点击1篇文章，本篇文章记录1次阅读量。
-  # 代码路径：_includes > _macro > post.html > #id=busuanzi_value_page_pv
+  # 代码路径：themes/next/layout/_macro/post.swig > #id=busuanzi_value_page_pv
   page_pv: true
-  # page_pv_header: <i class="fa fa-file-o"></i>
-  # page_pv_footer:
   page_pv_header: '<i class="fa fa-eye"></i> 阅读'
   page_pv_footer: '次'
 
