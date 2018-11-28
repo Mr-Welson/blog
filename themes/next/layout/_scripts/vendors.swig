@@ -4,6 +4,9 @@
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
+  // const mobileReg = /(iPhone|iPod|Android|ios|webOS|iPad|BlackBerry|Windows Phone|Symbian)/i;
+  // window.isMobile = mobileReg.test(window.navigator.userAgent);
+  // console.log(window.isMobile, 8)
 </script>
 
 {% set js_vendors = {} %}
@@ -16,6 +19,7 @@
 {% if theme.fancybox %}
   {% set js_vendors.fancybox  = 'fancybox/source/jquery.fancybox.pack.js?v=2.1.5' %}
 {% endif %}
+
 {% if theme.canvas_nest %}
   {% set js_vendors.canvas_nest  = 'canvas-nest/canvas-nest.min.js' %}
 {% endif %}
@@ -38,12 +42,28 @@
 {% if theme.canvas_ribbon.enable and theme.scheme === 'Pisces'%}
   {% set js_vendors.canvas_ribbon  = 'canvas-ribbon/canvas-ribbon.js' %}
 {% endif %}
-
+  
 {% for name, internal in js_vendors %}
   {% set internal_script = url_for(theme.vendors._internal) + '/' + internal %}
   {% if name == 'canvas_ribbon' %}
     <script id="ribbon" type="text/javascript" size="{{ theme.canvas_ribbon.size }}" alpha="{{ theme.canvas_ribbon.alpha }}"  zIndex="{{theme.canvas_ribbon.zIndex }}" src="{{ theme.vendors[name] | default(internal_script) }}"></script>
   {% else %}
-    <script type="text/javascript" src="{{ theme.vendors[name] | default(internal_script) }}"></script>
+    <script type="text/javascript" id="{{ name + '-script' }}" src="{{ theme.vendors[name] | default(internal_script) }}"></script>
   {% endif %}
 {% endfor %}
+
+{# 移动端移除canvas动画 #}
+{% if theme.canvas_nest || theme.three_waves || theme.canvas_lines || theme.canvas_sphere %}
+  <script type="text/javascript">
+    $(document).ready(function(){
+      var userAgent = window.navigator.userAgent;
+      var mobileReg = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
+      if(mobileReg.test(userAgent)) {
+        $("script[id='canvas_nest-script']").remove();
+        $("canvas[id*='c_n']").remove();
+      }
+    })
+  </script>
+{% endif %}
+
+ 

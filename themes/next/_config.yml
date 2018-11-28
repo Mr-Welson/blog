@@ -235,9 +235,8 @@ scroll_to_more: false
 # 保存页面滚动位置
 save_scroll: false
 
-# excerpt_separator -- 摘要分隔符
+# rede more -- 阅读全文
 # 在文章中适当位置插入 <!--more-->，该位置之前的部分即为摘要，会显示在首页中。
-excerpt_separator: <!-- more -->
 
 # Automatically excerpt description in homepage as preamble text.
 # 自动摘录description作为主页的序言文本
@@ -263,7 +262,7 @@ post_wordcount:
   item_text: true
   wordcount: true # 文章字数统计
   min2read: true # 文章阅读时长预计
-  totalcount: true # 网站总字数统计
+  totalcount: false # 网站总字数统计
   separated_meta: true
 
 
@@ -283,7 +282,7 @@ wechatpay: /assets/images/wechatpay.png
 alipay: /assets/images/alipay.png
 #bitcoin: /images/bitcoin.png
 
-# Declare license on posts -- 文章版权协议
+# Declare license on posts -- 文章版权声明
 post_copyright:
   enable: true
   license: CC BY-NC-SA 3.0
@@ -732,7 +731,7 @@ motion:
 fancybox: true
 
 # Progress bar in the top during page loading.
-pace: false
+pace: true
 # Themes list:
 #pace-theme-big-counter
 #pace-theme-bounce

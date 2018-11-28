@@ -211,43 +211,53 @@ theme: next
 |   └── zh-Hans.yml    #简体中文
 ├── layout             #布局，根目录下的*.ejs文件是对主页，分页，存档等的控制
 |   ├── _custom        #自定义模板
-|   |   ├── _header.swig    #自定义头部
+|   |   ├── _header.swig    #自定义网站页头，追加在页头模板之后
 |   |   ├── _sidebar.swig   #自定义侧边栏
 |   ├── _macro        #可以自己修改的模板，覆盖原有模板
-|   ├── ├── post-collapse.swig    #
-|   ├── ├── post-copyright.swig    #文章版权协议模板
-|   |   ├── post.swig    #文章模板
-|   |   ├── reward.swig    #打赏模板
-|   |   ├── sidebar.swig   #侧边栏模板
+|   ├── ├── post-collapse.swig    	#文章合并，在归档、分类、标签模板中引用
+|   ├── ├── post-copyright.swig    	#文章版权协议模板
+|   |   ├── post.swig    	#文章（正文和首页）模板
+|   |   ├── reward.swig    	#打赏模板
+|   |   ├── sidebar.swig   	#侧边栏模板
 |	|	├── wechat-subscriber.swig   #微信公众号模板
 |   ├── _partial       #局部的布局
-|   |   ├── head       #头部模板
+|   |   ├── head       #<head>标签模板
+|   |   |   ├── custom-head.swig    #追加在<head>标签末尾
+|   |   |   ├── external-fonts.swig #外部字体模板
 |   |   ├── search     #本地搜索模板
+|   |   |   ├── xxxx.swig   #不同类型的搜索模板
 |   |   ├── share      #分享模板
+|   |   |   ├── xxxx.swig   #不同类型的分享模板
 |   |   ├── comments.swig   #评论模板
-|   |   ├── footer.swig   #网站页脚模板
-|   |   ├── head.swig   #<head>标签模板
-|   |   ├── header.swig   #网站页头模板
-|   |   ├── page-header.swig   #文章头部模板
-|   |   ├── pagination.swig   #分页器模板
-|   |   ├── search.swig   #搜索模板入口
-|   ├── _script        #局部的布局
-|   ├── _third-party   #第三方模板
-|   ├── _layout.swig   #主页面模板
-|   ├── index.swig     #主页面模板
-|   ├── page           #页面模板
-|   └── tag.swig       #tag模板
+|   |   ├── footer.swig   	#网站页脚模板
+|   |   ├── head.swig  #<head>标签模板
+|   |   ├── header.swig   #网站页头模板（导航栏等等模块）
+|   |   ├── page-header.swig	#页面头部模板
+|   |   ├── pagination.swig 	#分页器模板
+|   |   ├── search.swig   	#搜索模板入口
+|   ├── _scripts       #脚本语言文件夹
+|   ├── _third-party   #第三方模板文件夹
+|   |   ├── analytics  #统计分析相关的模板
+|   |   ├── comments   #评论相关的模板
+|   |   ├── search     #搜索相关的模板
+|   |   ├── seo    	   #搜索引擎优化相关的模板
+|   |   ├── xxx.swig   #其它，可根据文件名称辨认
+|   ├── _layout.swig   #主页模板
+|   ├── archive.swig   #归档页模板
+|   ├── category.swig  #分类页模板
+|   ├── index.swig     #post主体模板
+|   ├── page.swig      #页面模板
+|   └── tag.swig       #标签页模板
 ├── scripts            #script源码
-|   ├── tags           #tags的script源码
+|   ├── tags           #Hexo内置标签插件源码
 |   ├── marge.js       #页面模板
-├── source             #源码
+├── source             #资源源码
 |   ├── css            #css源码
 |   |   ├── _common    #*.styl基础css
 |   |   ├── _custom    #*.styl局部css
 |   |   └── _mixins    #mixins的css
 |   ├── fonts          #字体
 |   ├── images         #图片
-|   ├── uploads        #添加的文件
 |   └── js             #javascript源代码
 ├── _config.yml        #主题配置文件
 └── README.md          
@@ -257,18 +267,19 @@ theme: next
 
 ## 配置相关
 
-### 文章显示更多
+### 阅读全文
 
-**1.**  在 `主题配置文件` 中任意一个地方设置 excerpt_separator，新版本可以跳过这一步
+**1.** 【推荐】在文章中适当位置插入 ` <!--more-->` 手动截断，该位置之前的部分即为摘要，会显示在首页中；
+
+**2. ** 在文章的 `front-matter` 中添加 `description`，并提供文章摘录；
+
+**3.**  自动形成摘要，在 `主题配置文件` 中添加，根据设置的 length 截断作为摘要。
 
 ```
-# excerpt_separator 摘要分隔符
-excerpt_separator： <!--more-->
+auto_excerpt:
+  enable: true
+  length: 150
 ```
-
-**2.**  在文章中适当位置插入 ` <!--more-->`，该位置之前的部分即为摘要，会显示在首页中。
-
-
 
 ### 本地搜索
 
