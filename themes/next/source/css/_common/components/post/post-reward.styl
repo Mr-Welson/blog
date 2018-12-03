@@ -1,35 +1,46 @@
+#reward-block {
+  padding: 10px 0;
+  margin: 60px auto 20px; 
+  width: 100%;
+  text-align: center;
+  border-top: 2px dashed $primary-light;
+  border-bottom: 2px dashed $primary-light;
+  .reward-comment {
+    margin: 10px 0;
+  }
+}
+
 #rewardButton {
     cursor: pointer;
     border: 0;
     outline: 0;
-    border-radius: 5px;
+    border-radius: 3px;
+    width: 72px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    background: $primary;
+    border: 1px solid $primary-dark;
     padding: 0;
-    margin: 0;
+    margin-top: 10px;
     letter-spacing: normal;
     text-transform: none;
     text-indent: 0px;
     text-shadow: none;
-}
-#rewardButton span {
-    display: inline-block;
-    width: 80px;
-    height: 35px;
-    border-radius: 5px;
     color: #fff;
-    font-weight: 400;
-    font-style: normal;
-    font-variant: normal;
-    font-stretch: normal;
-    font-size: 18px;
-    font-family: "Microsoft Yahei";
-    background: #F44336;
+    font-size: 16px;
 }
-#rewardButton span:hover{
-    background: #F7877F;
+
+#rewardButton:hover{
+    opacity : 0.6;
 }
 #QR{
     padding-top:20px;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
 }
+
 #QR a{
     border:0;
 }
@@ -38,22 +49,22 @@
     max-width: 100%;
     display: inline-block;
     margin: 0.8em 2em 0 2em;
+    transition: all 0.5s;
 }
-#wechat:hover p{
-    animation: roll 0.1s infinite linear;
-    -webkit-animation: roll 0.1s infinite linear;
-    -moz-animation: roll 0.1s infinite linear;
+#QR p{
+    font-size: 18px;
 }
-#alipay:hover p{
-    animation: roll 0.1s infinite linear;
-    -webkit-animation: roll 0.1s infinite linear;
-    -moz-animation: roll 0.1s infinite linear;
+#QR .reward-box:hover{
+  img {
+    transform: scale(1.2);
+  }
+  // p {
+  //   animation: roll 0.1s infinite linear;
+  //   -webkit-animation: roll 0.1s infinite linear;
+  //   -moz-animation: roll 0.1s infinite linear;
+  // }
 }
-#bitcoin:hover p {
-    animation: roll 0.1s infinite linear;
-    -webkit-animation: roll 0.1s infinite linear;
-    -moz-animation: roll 0.1s infinite linear;
-}
+
 @keyframes roll {
     from {
       transform(rotateZ(30deg));

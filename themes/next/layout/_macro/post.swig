@@ -63,12 +63,14 @@
         {% endif %}
 
         <div class="post-meta">
-          {# 发布时间 #}
+          {# 发布时间 更新时间 #}
           <span class="post-time">
             {% if theme.post_meta.created_at %}
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
+              {# 隐藏小图标
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-o"></i>
+                </span>
+              #}
               {% if theme.post_meta.item_text %}
                 <span class="post-meta-item-text">{{ __('post.posted') }}</span>
               {% endif %}
@@ -97,14 +99,16 @@
           {# 文章分类于 #}
           {% if post.categories and post.categories.length and theme.post_meta.categories %}
             <span class="post-category" >
-            {% if theme.post_meta.created_at or theme.post_meta.updated_at %}
-              <span class="post-meta-divider">|</span>
-            {% endif %}
+              {% if theme.post_meta.created_at or theme.post_meta.updated_at %}
+                <span class="post-meta-divider"> </span>
+              {% endif %}
+            {#  
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
+            #}
               {% if theme.post_meta.item_text %}
-                <span class="post-meta-item-text">{{ __('post.in') }}</span>
+                <span class="post-meta-item-text">{{ __('post.in') }}{{ __('symbol.colon') }} </span>
               {% endif %}
               {% for cat in post.categories %}
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -120,6 +124,80 @@
               {% endfor %}
             </span>
           {% endif %}
+
+          {# 字数统计 #}
+          {% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %}
+            <span class="post-wordcount">
+              {# 字数统计 #}
+              {% if theme.post_wordcount.wordcount %}
+                {% if theme.post_wordcount.separated_meta %}
+                  <span class="post-meta-divider"> </span>
+                {% endif %}
+                {# 
+                  <span class="post-meta-item-icon">
+                    <i class="fa fa-file-word-o"></i>
+                  </span>
+                
+                  {% if theme.post_wordcount.item_text %}
+                    <span class="post-meta-item-text">{{ __('post.wordcount') }}</span>
+                  {% endif %}
+                #}
+                <span title="{{ __('post.wordcount') }}">
+                 {{ __('post.wordcount') + '(' + wordcount(post.content) + ')' }}
+                </span>
+              {% endif %}
+
+              {% if theme.post_wordcount.wordcount and theme.post_wordcount.min2read %}
+                <span class="post-meta-divider">|</span>
+              {% endif %}
+
+              {# 阅读时长 #}
+              {% if theme.post_wordcount.min2read %}
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                {% if theme.post_wordcount.item_text %}
+                  <span class="post-meta-item-text">{{ __('post.min2read') }} &asymp;</span>
+                {% endif %}
+                <span title="{{ __('post.min2read') }}">
+                  {{ min2read(post.content) }} 分钟
+                </span>
+              {% endif %}
+            </span>
+          {% endif %}
+
+          {# 本文阅读量 LeanCould统计 #}
+          {% if theme.leancloud_visitors.enable %}
+            <span id="{{ url_for(post.path) }}" class="leancloud_visitors" data-flag-title="{{ post.title }}">
+              <span class="post-meta-divider"> </span>
+              {# 自定义显示 #}
+              <span class="page-pv">
+                {{ theme.leancloud_visitors.page_pv_header }}
+                <span class="leancloud-visitors-count"></span>
+                {{ theme.leancloud_visitors.page_pv_footer }}
+              </span>
+              {# 隐藏原有显示
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i> 阅读
+               </span>
+               {% if theme.post_meta.item_text %}
+                 <span class="post-meta-item-text">{{__('post.visitors')}}&#58;</span>
+               {% endif %}
+                 <span class="leancloud-visitors-count"></span>
+              #}
+             </span>
+          {% endif %}
+
+          {# 本文阅读量 不蒜子统计 首页不显示 
+          {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.page_pv %}
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv" id="busuanzi_container_page_pv">
+              {{ theme.busuanzi_count.page_pv_header }}
+              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+              {{ theme.busuanzi_count.page_pv_footer }}
+            </span>
+          {% endif %}
+          #}
 
           {# 文章评论数 #}
           {% if post.comments %}
@@ -204,75 +282,6 @@
             {% endif %}
           {% endif %}
 
-          {# 本文阅读量 LeanCould统计 #}
-          {% if theme.leancloud_visitors.enable %}
-            <span id="{{ url_for(post.path) }}" class="leancloud_visitors" data-flag-title="{{ post.title }}">
-              <span class="post-meta-divider">|</span>
-              {# 自定义显示 #}
-              <span class="page-pv">
-                {{ theme.leancloud_visitors.page_pv_header }}
-                <span class="leancloud-visitors-count"></span>
-                {{ theme.leancloud_visitors.page_pv_footer }}
-              </span>
-              {# 隐藏原有显示
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i> 阅读
-               </span>
-               {% if theme.post_meta.item_text %}
-                 <span class="post-meta-item-text">{{__('post.visitors')}}&#58;</span>
-               {% endif %}
-                 <span class="leancloud-visitors-count"></span>
-              #}
-             </span>
-          {% endif %}
-
-          {# 本文阅读量 不蒜子统计 首页不显示 
-          {% if not is_index and theme.busuanzi_count.enable and theme.busuanzi_count.page_pv %}
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv" id="busuanzi_container_page_pv">
-              {{ theme.busuanzi_count.page_pv_header }}
-              <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-              {{ theme.busuanzi_count.page_pv_footer }}
-            </span>
-          {% endif %}
-          #}
-
-          {# 字数统计 #}
-          {% if theme.post_wordcount.wordcount or theme.post_wordcount.min2read %}
-            <div class="post-wordcount">
-              {% if theme.post_wordcount.wordcount %}
-                {% if not theme.post_wordcount.separated_meta %}
-                  <span class="post-meta-divider">|</span>
-                {% endif %}
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                {% if theme.post_wordcount.item_text %}
-                  <span class="post-meta-item-text">{{ __('post.wordcount') }}&#58;</span>
-                {% endif %}
-                <span title="{{ __('post.wordcount') }}">
-                  {{ wordcount(post.content) }} 字
-                </span>
-              {% endif %}
-
-              {% if theme.post_wordcount.wordcount and theme.post_wordcount.min2read %}
-                <span class="post-meta-divider">|</span>
-              {% endif %}
-
-              {% if theme.post_wordcount.min2read %}
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                {% if theme.post_wordcount.item_text %}
-                  <span class="post-meta-item-text">{{ __('post.min2read') }} &asymp;</span>
-                {% endif %}
-                <span title="{{ __('post.min2read') }}">
-                  {{ min2read(post.content) }} 分钟
-                </span>
-              {% endif %}
-            </div>
-          {% endif %}
-
           {# 摘要 #}
           {% if post.description and (not theme.excerpt_description or not is_index) %}
               <div class="post-description">
@@ -289,7 +298,7 @@
     {#################}
     <div class="post-body{% if theme.han %} han-init-context{% endif %}{% if post.direction && post.direction.toLowerCase() === 'rtl' %} rtl{% endif %}" itemprop="articleBody">
 
-      {# Gallery support #}
+      {# Gallery support -- 文章图片 #}
       {% if post.photos and post.photos.length %}
         <div class="post-gallery" itemscope itemtype="http://schema.org/ImageGallery">
           {% set COLUMN_NUMBER = 3 %}
@@ -308,9 +317,10 @@
         </div>
       {% endif %}
 
-      {# 首页显示更多 默认显示 post.excerpt  #}
+      {# 首页显示 阅读全文 及 摘要 #}
       {% if is_index %}
         {% if post.description and theme.excerpt_description %}
+        {# 在 front-matter 设置 description #}
           {{ post.description }}
           <!--noindex-->
           <div class="post-button text-center">
@@ -320,16 +330,17 @@
           </div>
           <!--/noindex-->
         {% elif post.excerpt  %}
+        {# 根据 <!-- more --> 生成摘要 #}
           {{ post.excerpt }}
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
               {{ __('post.read_more') }} &raquo;
-              <span class="222"></span>
             </a>
           </div>
           <!--/noindex-->
         {% elif theme.auto_excerpt.enable %}
+        {# 根据设置长度截取摘要 #}
           {% set content = post.content | striptags %}
           {{ content.substring(0, theme.auto_excerpt.length) }}
           {% if content.length > theme.auto_excerpt.length %}...{% endif %}
@@ -426,7 +437,7 @@
         {% endif %}
       {% endif %}
 
-      {# 上一页 下一页 #}
+      {# 非首页的 上一页 下一页 #}
       {% if not is_index and (post.prev or post.next) %}
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
@@ -449,6 +460,7 @@
         </div>
       {% endif %}
 
+      {# 首页文章页脚 #}
       {% set isLast = loop.index % page.per_page === 0 %}
       {% if is_index and not isLast %}
         <div class="post-eof"></div>

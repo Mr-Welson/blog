@@ -33,14 +33,21 @@
       text-align: left;
     }
 
-    &:hover { background: #e1e1e1; }
+    &:hover { 
+      background: rgba(0,0,0,0.04); 
+    }
+  }
+
+  .menu-item-active a {
+    background:#e1e1e1;
+    color: $primary-dark;
   }
 
   a::before {
-      display: none;
+    display: none;
 
-      +mobile() { display: block; }
-    }
+    +mobile() { display: block; }
+  }
 
   +mobile() { float: none; }
 }

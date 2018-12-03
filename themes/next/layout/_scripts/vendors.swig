@@ -4,9 +4,6 @@
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
-  // const mobileReg = /(iPhone|iPod|Android|ios|webOS|iPad|BlackBerry|Windows Phone|Symbian)/i;
-  // window.isMobile = mobileReg.test(window.navigator.userAgent);
-  // console.log(window.isMobile, 8)
 </script>
 
 {% set js_vendors = {} %}

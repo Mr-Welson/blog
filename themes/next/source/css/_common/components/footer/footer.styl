@@ -10,10 +10,18 @@
 .with-love {
   display: inline-block;
   margin: 0 5px;
+  color: $primary;  
+  
 }
 
 .powered-by,
-.theme-info { display: inline-block; }
+.theme-info { 
+  display: inline-block; 
+  .theme-link {
+    text-shadow: 1px 1px 1px $primary;
+  }
+
+}
 
 .cc-license {
   margin-top: 10px;

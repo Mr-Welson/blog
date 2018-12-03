@@ -50,7 +50,7 @@ rss:
 footer:
   # Specify the date when the site was setup.
   # If not defined, current year will be used.
-  #since: 2015 #站点建立时间
+  since: 2017 #站点建立时间
 
   # Icon between year and copyright info.
   icon: heart
@@ -65,7 +65,7 @@ footer:
     # Theme & scheme info link (Theme - NexT.scheme).
     enable: true
     # Version info of NexT after scheme info (vX.X.X).
-    version: true
+    version: false
   # -------------------------------------------------------------
 
   # Any custom text can be defined here. -- 页脚自定义文本显示
@@ -206,8 +206,8 @@ sidebar:
   #  - always  expand for all pages automatically - 在所有页面中都显示
   #  - hide    expand only when click on the sidebar toggle icon - 在所有页面中都隐藏（可以手动展开）
   #  - remove  Totally remove sidebar including sidebar toggle - 完全移除
-  # display: post
-  display: always
+  display: post
+  # display: always
   #display: hide
   #display: remove
 
@@ -219,7 +219,7 @@ sidebar:
   b2t: false
 
   # Scroll percent label in b2t button.
-  scrollpercent: false
+  scrollpercent: true
 
   # Enable sidebar on narrow view (only for Muse | Mist).
   onmobile: false
@@ -253,7 +253,7 @@ auto_excerpt:
 post_meta:
   item_text: true # 显示'分类于'
   created_at: true # 文章创建时间
-  updated_at: false # 文章更新时间 （更新时间和创建时间只显示一个）
+  updated_at: false # 文章更新时间
   categories: true # 显示文章分类
 
 # Post wordcount display settings
@@ -261,7 +261,7 @@ post_meta:
 post_wordcount:
   item_text: true
   wordcount: true # 文章字数统计
-  min2read: true # 文章阅读时长预计
+  min2read: false # 文章阅读时长预计
   totalcount: false # 网站总字数统计
   separated_meta: true
 
@@ -574,8 +574,8 @@ rating:
 # You can visit https://leancloud.cn get AppID and AppKey.
 leancloud_visitors:
   enable: true
-  page_pv_header: '<i class="fa fa-eye"></i> 阅读'
-  page_pv_footer: '次'
+  page_pv_header: '阅读('
+  page_pv_footer: ')'
   app_id: dzypYtzX31XqgMPyUck0K7Ee-gzGzoHsz
   app_key: UgiUCEKcXCUCnvv5EufCQNEC
 
