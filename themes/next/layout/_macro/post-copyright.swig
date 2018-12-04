@@ -3,6 +3,14 @@
     <strong>{{ __('post.copyright.author') + __('symbol.colon') }}</strong>
     {{ post.author | default(config.author) }}
   </li>
+  <li class="post-copyright-date">
+    <strong>{{ '发布时间' + __('symbol.colon') }}</strong>
+    {{ post.date.format("YYYY年MM月DD日 HH:mm") }}
+  </li>
+  <li class="post-copyright-updated">
+    <strong>{{ '最后更新' + __('symbol.colon') }}</strong>
+    {{ post.updated.format("YYYY年MM月DD日 HH:mm") }}
+  </li>
   <li class="post-copyright-link">
     <strong>{{ __('post.copyright.link') + __('symbol.colon') }}</strong>
     <a href="{{ post.url | default(post.permalink) }}" title="{{ post.title }}">{{ post.url | default(post.permalink) }}</a>

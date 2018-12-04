@@ -323,7 +323,7 @@
         {# 在 front-matter 设置 description #}
           {{ post.description }}
           <!--noindex-->
-          <div class="post-button text-center">
+          <div class="post-button more-btn text-center">
             <a class="btn" href="{{ url_for(post.path) }}">
               {{ __('post.read_more') }} &raquo;
             </a>
@@ -333,7 +333,7 @@
         {# 根据 <!-- more --> 生成摘要 #}
           {{ post.excerpt }}
           <!--noindex-->
-          <div class="post-button text-center">
+          <div class="post-button more-btn text-center">
             <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
               {{ __('post.read_more') }} &raquo;
             </a>
@@ -345,7 +345,7 @@
           {{ content.substring(0, theme.auto_excerpt.length) }}
           {% if content.length > theme.auto_excerpt.length %}...{% endif %}
           <!--noindex-->
-          <div class="post-button text-center">
+          <div class="post-button more-btn text-center">
             <a class="btn" href="{{ url_for(post.path) }}{% if theme.scroll_to_more %}#{{ __('post.more') }}{% endif %}" rel="contents">
               {{ __('post.read_more') }} &raquo;
             </a>
@@ -361,15 +361,31 @@
       {% else %}
         {{ post.content }}
       {% endif  %}
+
     </div>
     {#####################}
     {### END POST BODY ###}
     {#####################}
+    {# 文章结束标签 #}
+    {% if theme.post_end and not is_index %}
+      <div>
+        {% include 'post-end.swig' %}
+      </div>
+    {% endif %}
 
     {# 微信公众号订阅 #}
     {% if theme.wechat_subscriber.enabled and not is_index %}
       <div>
         {% include 'wechat-subscriber.swig' %}
+      </div>
+    {% endif %}
+    
+    {# 文章归属标签 #}
+    {% if post.tags and post.tags.length and not is_index %}
+      <div class="post-tags">
+        {% for tag in post.tags %}
+          <a href="{{ url_for(tag.path) }}" rel="tag"><i class="fa fa-tag"></i> {{ tag.name }}</a>
+        {% endfor %}
       </div>
     {% endif %}
 
@@ -388,14 +404,6 @@
     {% endif %}
 
     <footer class="post-footer">
-      {# 文章归属标签 #}
-      {% if post.tags and post.tags.length and not is_index %}
-        <div class="post-tags">
-          {% for tag in post.tags %}
-            <a href="{{ url_for(tag.path) }}" rel="tag"><i class="fa fa-tag"></i> {{ tag.name }}</a>
-          {% endfor %}
-        </div>
-      {% endif %}
 
       {# 文章排名 #}
       {% if not is_index %}

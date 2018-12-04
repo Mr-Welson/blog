@@ -265,6 +265,10 @@ post_wordcount:
   totalcount: false # 网站总字数统计
   separated_meta: true
 
+# 自定义添加文章结束标记
+post_end: false 
+
+
 
 # ---------------------------------------------------------------
 # Wechat Subscriber -- 微信公众号订阅设置
@@ -436,7 +440,7 @@ valine:
 
 # Support for LiveRe comments system. -- 来必力
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-#livere_uid: your uid
+livere_uid: MTAyMC80MTQ1Mi8xNzk5OQ==
 
 # Gitment
 # Introduction: https://imsun.net/posts/gitment-introduction/

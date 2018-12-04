@@ -3,30 +3,25 @@ title: 关于我
 layout: page
 ---
 
-<p>
-一个 JS 菜鸟，喜欢研究新技术，在前端的路上始终遵循从入门走到放弃。
-</p>
 
-<p>
-平时喜欢看电影、打Dota，偶尔逛逛前端网站。
-</p>
+#### Mr.Welson
+
+前端开发
+坐标武汉
+
+
+工作之余的最大爱好是篮球，每周末都会约上好友来一场精美绝伦的养生篮球
+当然了，刷前端网站，了解新技术也是日常
 
 
 #### 博客 Blog
 
-博客地址: <a target="_blank" href='https://mr-welson.github.io'> Mr-Welson </a>
+采用 Hexo 模板和 NexT 主题
+自定义了一些颜色，优化和添加了一些小部件
+保留 NexT 原有的简洁，但也不至于烂大街般的撞肤
+如果喜欢，欢迎交流。
 
-博客源码: <a target="_blank" href='https://github.com/Mr-Welson/Mr-Welson.github.io'> Github </a> 上，你的 Star 是我更新的动力，谢谢~
-
-
-<!-- ## 简介 Introduce -->
-
-<!-- #### 感谢 Thinks -->
-
-<!-- 搭建教程: <a target="_blank" href="http://blog.csdn.net/qq_27888241/article/details/77104922">使用Jekyll + GitHub Pages搭建个人博客</a> -->
-<!-- 模板使用: <a target="_blank" href="https://github.com/EZLippi/EZLippi.github.io">EZLippi</a> -->
-
-<!-- 主题使用: <a target="_blank" href="https://github.com/ShixiangWang/ShixiangWang.github.io">ShixiangWang</a> -->
+博客源码: <a target="_blank" href='//github.com/Mr-Welson/blog'> Github </a>，你的 Star 是我更新的动力，谢谢~
 
 
 <!-- ## 打赏
