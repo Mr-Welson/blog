@@ -35,10 +35,11 @@
     opacity : 0.6;
 }
 #QR{
-    padding-top:20px;
     height: 0;
     overflow: hidden;
     transition: all 0.5s;
+    display: flex;
+    justify-content: space-between;
 }
 
 #QR a{
@@ -48,21 +49,23 @@
     width: 180px;
     max-width: 100%;
     display: inline-block;
-    margin: 0.8em 2em 0 2em;
     transition: all 0.5s;
 }
 #QR p{
     font-size: 18px;
+    margin: 0;
 }
-#QR .reward-box:hover{
-  img {
-    transform: scale(1.2);
-  }
+#QR .reward-box {
+  flex: 1;
+  padding: 2rem 1rem 0;
+  &:hover{
+    img {
+      transform(scale(1.2));
+    }
   // p {
-  //   animation: roll 0.1s infinite linear;
-  //   -webkit-animation: roll 0.1s infinite linear;
-  //   -moz-animation: roll 0.1s infinite linear;
+  //    animation(roll 0.1s infinite linear);
   // }
+  }
 }
 
 @keyframes roll {

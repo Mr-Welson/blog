@@ -34,11 +34,11 @@
   {% if theme.wechatpay || theme.alipay || theme.bitcoin %}
     <script type="text/javascript">
       document.getElementById("rewardButton").onclick = function() {
+        console.log(window.$)
           var $QR = document.getElementById("QR");
-          console.log(222)
           if($QR.dataset.show === "false") {
             $QR.dataset.show = "true";
-            $QR.style.height = "280px";
+            $QR.style.height = "260px";
           } else {
             $QR.dataset.show = "false";
             $QR.style.height = "0px";
