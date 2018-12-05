@@ -1,23 +1,209 @@
 // Custom styles.
 
-// 阅读全文按钮
-.post-button {
-  text-align: center;
-  a {
-    padding: 0 8px;
-    color: $grey-dim;
-    border: 1px solid $grey-dim;
-    border-radius: 2px;
-    transition: all 0.2s;
-    font-size: $font-size-base;
-
-    &:hover { 
-      border-color: $primary-dark; 
-      color: $primary-dark;  
+// -- 网站头部样式 Start --  
+.header { 
+  background: white; 
+  box-shadow: $c-card-box-shadow;
+  .logo-line-before,
+  .logo-line-after {
+    i {
+      background: $brand-color;
     }
+  }
+  .brand:hover i{
+    background: $brand-hover-color;
+  }
+}
+// -- 网站头部样式 Start --  
+
+// -- 网站页脚样式 Start --  
+.footer{
+  background: #eee; 
+  margin-top: 20px;
+  border-top: 1px solid #e1e1e1;
+}
+.with-love {
+  color: $primary;  
+  animation(heartbeat 1.2s infinite ease-in-out)
+}
+// --  网站页脚样式 End --  
+
+// --  网站主题内容 Start --
+.main-inner {
+  margin-top: 30px;
+}
+
+.posts-expand .post {
+  margin-top: 30px;
+  padding: 20px;
+  background: #fff;
+  position: relative;
+  overflow: hidden;
+  // border: 1px solid #e8e8e8;
+  box-shadow: $c-box-shadow;
+  &:hover {
+    box-shadow: $c-card-box-shadow;
+  }
+
+}
+// --  网站主题内容 End --  
+
+// 侧边栏开关样式
+.btn-bar, .sidebar-toggle-line {
+  background: $primary;
+}
+
+// --  首页的文章样式 Start --
+.post-index .post-block {
+  // border-bottom: 2px dashed $primary-light;
+  .post-header {
+  
+  
+  }
+  .post-body {
+    
+  }
+  // 阅读全文按钮
+  .more-btn {
+    text-align: center;
+    a {
+      c-primary-btn();
+    }
+  }
+
+}
+// --  首页post样式 End --
+
+// --  评论模块样式  --
+.comments.valine-comments {
+  background: white;
+  margin: 40px 0 0;
+  box-shadow: $c-box-shadow;
+  &:hover {
+    box-shadow: $c-card-box-shadow
+  }
+  *{
+    line-height: normal;
+  }
+  .vwrap {
+    border-radius: 0;
+    .vheader {
+      .vinput {
+        width: 32%;
+        margin-right: 1.3%;
+        border-bottom: 1px solid #dedede;
+        &:focus, &:hover {
+          border-color: $primary-dark;
+        } 
+      }
+    }
+    .veditor {
+      border-radius: 2px;  
+      resize: none;
+      border: 1px solid #dedede;
+      padding: 8px;
+      overflow-y: auto!important;
+      height: 8.75rem!important;
+      &:focus, &:hover {
+        border-color: $primary-dark;
+      }  
+    }
+  }
+  .vinfo {
+    .vcount{
+      
+    }
+    .vnum {
+      color: $primary;
+    }
+  }
+  .vlist {
+    .vcard{
+      .vh{
+        padding-bottom: 0;
+      }
+    }
+    .vcontent {
+      padding-top: 0;  
+    }
+    .vhead {
+      .vnick {
+        color: $primary;
+        &:before {
+          background: $primary-dark;
+        }
+        &:hover{
+          color: $primary-dark;
+        }
+      }
+      .vsys {
+        display: none;
+      }
+    }
+    .vmeta .vat{
+      color: $primary;
+      &:hover{
+        color: $primary-dark;
+      }
+    }
+  }
+  .vbtn {
+    c-primary-btn();      
+  }
+  .info {
+    display: none;
   }
 }
 
-.btn-bar, .sidebar-toggle-line {
-  background: $primary;
+
+
+.dandelion .bigdan {
+  width: 64px;
+  height: 115px;
+  left: 41px;
+  background-position: -86px -36px;
+}
+
+.dandelion span {
+  display: block;
+  position: fixed;
+  z-index: 9999999999;
+  bottom: 0px;
+  background: url(http://www.yeyulingfeng.com/diy/pugongying.png) no-repeat;
+  animation(shake 3s linear 2s infinite);
+  -webkit-transform-origin: bottom center;
+  -moz-transform-origin: bottom center;
+  transform-origin: bottom center;
+}
+
+@keyframes heartbeat {
+  0% {
+    transform(scale(1));
+  }
+  10% {
+    transform(scale(0.9));
+  }
+  20% {
+    transform(scale(1.1));
+  }
+  30% {
+    transform(scale(0.9));    
+  }
+  40% {
+    transform(scale(1.1));
+  }
+  100% {
+    transform(scale(1));    
+  }
+}
+
+
+
+@keyframes shake {
+  0%, 50%, 100% { 
+   transform(rotate(0deg));
+  }
+  25%, 75% { 
+   transform(rotate(5deg));
+  }
 }

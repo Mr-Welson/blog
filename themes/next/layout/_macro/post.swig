@@ -8,6 +8,11 @@
   {% if post_extra_class > 0 %}
     {% set post_class = post_class + ' ' + post_extra_class | default('') %}
   {% endif %}
+
+  {% if is_index %}
+    {% set post_class = post_class + ' ' + 'post-index' %}
+  {% endif %}
+
   {% if post.sticky > 0 %}
     {% set post_class = post_class + ' ' + 'post-sticky' %}
   {% endif %}

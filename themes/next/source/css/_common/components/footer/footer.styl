@@ -10,8 +10,6 @@
 .with-love {
   display: inline-block;
   margin: 0 5px;
-  color: $primary;  
-  animation(heartbeat 1.2s infinite ease-in-out)
   
 }
 
@@ -38,25 +36,4 @@
   }
 
   img { display: inline-block; }
-}
-
-@keyframes heartbeat {
-  0% {
-    transform(scale(1));
-  }
-  10% {
-    transform(scale(0.9));
-  }
-  20% {
-    transform(scale(1.1));
-  }
-  30% {
-    transform(scale(0.9));    
-  }
-  40% {
-    transform(scale(1.1));
-  }
-  100% {
-    transform(scale(1));    
-  }
 }

@@ -8,7 +8,7 @@
     }
   ],
   "description": "Accelerated JavaScript animation.",
-  "main": [ "./velocity.js", "./velocity.ui.js"],
+  "main": [ "./velocity.min.js", "./velocity.ui.min.js"],
   "keywords": [
     "animation",
     "jquery",

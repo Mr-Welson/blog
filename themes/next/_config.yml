@@ -28,10 +28,10 @@ override: false
 # Then need to rename & redefine they on any other names, otherwise icons from Next will rewrite your custom icons in Hexo.
 favicon:
   # small: /images/favicon-16x16-next.png
-  small: /assets/images/favicon.jpg
-  medium: /assets/images/favicon.jpg
-  apple_touch_icon: /images/apple-touch-icon-next.png
-  safari_pinned_tab: /images/logo.svg
+  small: /images/favicon.jpg
+  medium: /images/favicon.jpg
+  apple_touch_icon: /images/favicon.jpg
+  safari_pinned_tab: /images/favicon.jpg
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
@@ -59,11 +59,11 @@ footer:
   copyright: false
   # -------------------------------------------------------------
   # Hexo link (Powered by Hexo).
-  powered: true
+  powered: false
 
   theme:
     # Theme & scheme info link (Theme - NexT.scheme).
-    enable: true
+    enable: false
     # Version info of NexT after scheme info (vX.X.X).
     version: false
   # -------------------------------------------------------------
@@ -102,12 +102,13 @@ index_with_subtitle: true
 menu:
   home: /
   archives: /archives/
-  categories: /categories/
+  # categories: /categories/
   tags: /tags/
   about: /about/
   # commonweal: /404/
-  #schedule: /schedule/
-  #sitemap: /sitemap.xml
+  # schedule: /schedule/
+  # sitemap: /sitemap.xml
+  # demo: /demo/
 
 # Enable/Disable menu icons. 控制是否显示图标
 # fontawesomeIcon: http://fontawesome.io/icons/
@@ -115,12 +116,13 @@ menu_icons:
   enable: true 
   home: home
   about: user
-  categories: th
+  # categories: th
   tags: tags
   archives: archive
   sitemap: sitemap
   commonweal: heartbeat
   schedule: calendar
+  demo: /demo/
 
 
 # ---------------------------------------------------------------
@@ -176,7 +178,7 @@ links:
 # 路径设置参考：
   # in theme directory(source/images): /images/avatar.gif
   # in site  directory(source/uploads): /uploads/avatar.gif
-avatar: /assets/images/avatar.jpg
+avatar: /images/avatar.jpg
 
 # Table Of Contents in the Sidebar
 # toc: 文章目录
@@ -198,16 +200,16 @@ toc:
 sidebar:
   # Sidebar Position, available value: left | right (only for Pisces | Gemini).
   # 设置侧栏的位置
-  position: left 
-  #position: right
+  # position: left 
+  position: right
 
   # Sidebar Display, available value (only for Muse | Mist): 设置侧栏显示的时机
   #  - post    expand on posts automatically. Default(默认值) - 在文章页面（拥有目录列表）时显示
   #  - always  expand for all pages automatically - 在所有页面中都显示
   #  - hide    expand only when click on the sidebar toggle icon - 在所有页面中都隐藏（可以手动展开）
   #  - remove  Totally remove sidebar including sidebar toggle - 完全移除
-  display: post
-  # display: always
+  # display: post
+  display: always
   #display: hide
   #display: remove
 
@@ -216,7 +218,7 @@ sidebar:
   offset_float: 0
 
   # Back to top in sidebar (only for Pisces | Gemini).
-  b2t: false
+  b2t: true
 
   # Scroll percent label in b2t button.
   scrollpercent: true
@@ -282,13 +284,13 @@ post_end: false
 # Reward Settings -- 打赏设置
 # ---------------------------------------------------------------
 reward_comment: 打赏链接还是要有的，万一真的有人捐呢，感谢您的支持！
-wechatpay: /assets/images/wechatpay.png
-alipay: /assets/images/alipay.png
+wechatpay: /images/wechatpay.png
+alipay: /images/alipay.png
 #bitcoin: /images/bitcoin.png
 
 # Declare license on posts -- 文章版权声明
 post_copyright:
-  enable: true
+  enable: false
   license: CC BY-NC-SA 3.0
   license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
@@ -410,7 +412,7 @@ disqus:
 # Hypercomments
 #hypercomments_id:
 
-# changyan -- 畅言评论系统
+# changyan -- 畅言评论系统：域名必须备案，有广告，社交账号登录
 changyan:
   enable: false
   appid:
@@ -419,16 +421,16 @@ changyan:
 # Gentie productKey -- 网易云跟帖
 #gentie_productKey:
 
-# Valine.
+# Valine. -- leanCloud提供的评论系统，无需登录即可评论，登录后可显示头像
 # You can get your appid and appkey from https://leancloud.cn
 # more info please open https://valine.js.org
 valine:
-  enable: false
-  appid:  # your leancloud application appid
-  appkey:  # your leancloud application appkey
-  notify: false # mail notifier , https://github.com/xCss/Valine/wiki
+  enable: true
+  appid:  dzypYtzX31XqgMPyUck0K7Ee-gzGzoHsz # your leancloud application appid
+  appkey: UgiUCEKcXCUCnvv5EufCQNEC # your leancloud application appkey
+  notify: true # mail notifier , https://github.com/xCss/Valine/wiki
   verify: false # Verification code
-  placeholder: Just go go # comment box placeholder
+  placeholder: 说点什么吧... # comment box placeholder
   avatar: mm # gravatar style
   guest_info: nick,mail,link # custom comment header
   pageSize: 10 # pagination size
@@ -438,11 +440,11 @@ valine:
 # You can get your uid from http://www.uyan.cc
 #youyan_uid: your uid
 
-# Support for LiveRe comments system. -- 来必力
+# Support for LiveRe comments system. -- 来必力：加载慢
 # You can get your uid from https://livere.com/insight/myCode (General web site)
-livere_uid: MTAyMC80MTQ1Mi8xNzk5OQ==
+# livere_uid: MTAyMC80MTQ1Mi8xNzk5OQ==
 
-# Gitment
+# Gitment -- github提供的评论系统：只能使用github账号登录
 # Introduction: https://imsun.net/posts/gitment-introduction/
 # You can get your Github ID from https://api.github.com/users/<Github username>
 gitment:
@@ -452,7 +454,9 @@ gitment:
   lazy: false # Comments lazy loading with a button
   cleanly: false # Hide 'Powered by ...' on footer, and more
   # Force language, or auto switch by theme
-  language: zh-Hans
+  language: 
+    - zh-Hans
+    - en
   github_user: # MUST HAVE, Your Github ID
   github_repo: # MUST HAVE, The repo you use to store Gitment comments
   client_id: # MUST HAVE, Github client id for the Gitment
@@ -756,7 +760,7 @@ pace_theme: pace-theme-minimal
 
 # Background Motion背景动画
 # Canvas-nest
-canvas_nest: true
+canvas_nest: false
 
 # three_waves -- version >= 5.1.1
 three_waves: false

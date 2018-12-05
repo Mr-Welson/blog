@@ -7,6 +7,7 @@
         if (typeof LivereTower === 'function') { return; }
         j = d.createElement(s);
         j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        // j.src = '/lib/livere/embed.dist.js';
         j.async = true;
         e.parentNode.insertBefore(j, e);
       })(document, 'script');
