@@ -75,7 +75,7 @@
 // --  首页post样式 End --
 
 // --  评论模块样式  --
-.comments.valine-comments {
+#comments.valine-comments {
   background: white;
   margin: 40px 0 0;
   box-shadow: $c-box-shadow;
@@ -87,6 +87,7 @@
   }
   .vwrap {
     border-radius: 0;
+    border: 0;
     .vheader {
       .vinput {
         width: 32%;
@@ -110,14 +111,17 @@
     }
   }
   .vinfo {
+    padding: 0 10px;
+    padding-left: 20px;
     .vcount{
-      
+      font-size: 1.25rem;
     }
     .vnum {
       color: $primary;
     }
   }
   .vlist {
+    padding: 10px;
     .vcard{
       .vh{
         padding-bottom: 0;
