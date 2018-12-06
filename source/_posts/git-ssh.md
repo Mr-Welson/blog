@@ -1,7 +1,7 @@
 ---
 title: git-ssh设置
 categories:
-  - 笔记
+  - 工具
 tag:
   - git
 date: 2018-11-21 21:08:18

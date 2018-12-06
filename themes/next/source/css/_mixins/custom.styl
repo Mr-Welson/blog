@@ -3,18 +3,27 @@ c-img-mask() {
   background-image: linear-gradient(hsla(0,0%,56%,.3),rgba(70,70,70,.6));
 }
 
+c-card() {
+  border: 0;
+  box-shadow: $c-box-shadow;
+  background: #fff;
+  padding: 20px;
+  &:hover {
+    box-shadow: $c-card-box-shadow;
+  }
+}
+
 c-primary-btn() {
+  min-width: 72px;
+  line-height: 2;
   padding: 0 12px;
-  transition: all 0.5s;
-  font-size: $font-size-base; 
+  outline: none;
   color: #fff;
+  font-size: $font-size-base; 
   border-radius: 2px;
   border: 1px solid $primary-dark;
   background: $primary;
   transition: all 0.5s;
-  min-width: 72px;
-  outline: none;
-  line-height: 2;
   &:hover { 
     color: $primary-dark; 
     border-color: $primary-dark;

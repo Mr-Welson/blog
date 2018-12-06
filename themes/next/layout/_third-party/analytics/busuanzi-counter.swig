@@ -1,6 +1,5 @@
 {% if theme.busuanzi_count.enable %}
 <div class="busuanzi-count">
-  {#<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>#}
   <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   {# 本站访客数 #}

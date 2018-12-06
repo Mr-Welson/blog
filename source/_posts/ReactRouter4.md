@@ -2,10 +2,9 @@
 date: 2018-11-22 11:32:07
 title: React-Router v4.x API
 categories:
-  - 笔记
+  - JavaScript
 tag:
-  - react-router
-  - js
+  - React
 ---
 
 

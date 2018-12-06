@@ -761,7 +761,7 @@ pace_theme: pace-theme-minimal
 
 # Background Motion背景动画
 # Canvas-nest
-canvas_nest: false
+canvas_nest: true
 
 # three_waves -- version >= 5.1.1
 three_waves: false

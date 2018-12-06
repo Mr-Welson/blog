@@ -1,7 +1,7 @@
 ---
-title: windows常用系统命令
+title: Windows常用系统命令
 categories:
-  - 笔记
+  - 工具
 tag:
   - windows
 ---

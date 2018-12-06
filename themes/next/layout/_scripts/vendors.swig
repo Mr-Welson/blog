@@ -53,9 +53,7 @@
 {% if theme.canvas_nest || theme.three_waves || theme.canvas_lines || theme.canvas_sphere %}
   <script type="text/javascript">
     $(document).ready(function(){
-      var userAgent = window.navigator.userAgent;
-      var mobileReg = /iPad|iPhone|Android|Opera Mini|BlackBerry|webOS|UCWEB|Blazer|PSP|IEMobile|Symbian/g;
-      if(mobileReg.test(userAgent)) {
+      if(NexT.utils.isMobile()) {
         $("script[id='canvas_nest-script']").remove();
         $("canvas[id*='c_n']").remove();
       }

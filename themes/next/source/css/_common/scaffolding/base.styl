@@ -12,7 +12,10 @@ body {
   color: $text-color;
   background: $body-bg-color;
 
-  +mobile() { padding-right: 0 !important; }
+  +mobile() { 
+    padding-right: 0 !important; 
+    background: #fff;
+  }
   +tablet() { padding-right: 0 !important; }
   +desktop-large() { font-size: $font-size-large; }
 }

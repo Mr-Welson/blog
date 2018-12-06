@@ -35,16 +35,15 @@
 
 .posts-expand .post {
   margin-top: 30px;
-  padding: 20px;
-  background: #fff;
   position: relative;
   overflow: hidden;
-  // border: 1px solid #e8e8e8;
-  box-shadow: $c-box-shadow;
-  &:hover {
-    box-shadow: $c-card-box-shadow;
+  c-card();
+   +mobile() {
+    box-shadow: none;
+    &:hover {
+      box-shadow: none;
+    }
   }
-
 }
 // --  网站主题内容 End --  
 
@@ -55,9 +54,7 @@
 
 // --  首页的文章样式 Start --
 .post-index .post-block {
-  // border-bottom: 2px dashed $primary-light;
   .post-header {
-  
   
   }
   .post-body {
@@ -76,18 +73,15 @@
 
 // --  评论模块样式  --
 #comments.valine-comments {
-  background: white;
   margin: 40px 0 0;
-  box-shadow: $c-box-shadow;
-  &:hover {
-    box-shadow: $c-card-box-shadow
-  }
+  c-card();
   *{
     line-height: normal;
   }
   .vwrap {
     border-radius: 0;
     border: 0;
+    padding: 0;
     .vheader {
       .vinput {
         width: 32%;
@@ -211,3 +205,21 @@
    transform(rotate(5deg));
   }
 }
+
+// 滚动条整体区域
+::-webkit-scrollbar {
+  width: 10px; // 宽度设置纵向滚动条的宽度
+  height: 10px; // 高度设置横向滚动条的高度
+}
+
+// 滑块样式
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background: #ddd;
+  border: 3px solid $body-bg-color;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+

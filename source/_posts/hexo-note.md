@@ -1,11 +1,11 @@
 ---
 title: Hexo 博客指南
 categories:
-  - 笔记
+  - 工具
 tag:
-  - 笔记
+  - Hexo 
+  - NexT
   - 博客
-  - GitHub Page
 date: 2018-11-20 18:42:14
 ---
 
