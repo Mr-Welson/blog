@@ -5,25 +5,26 @@ comments: true
 ---
 
 
-#### Mr.Welson
+#### 关于 Mr.Welson
 
 前端开发
 坐标武汉
 
-
 工作之余的最大爱好是篮球，每周末都会约上好友来一场精美绝伦的养生篮球
 当然了，刷前端网站，了解新技术也是日常
 
-
 #### 博客 Blog
 
-采用 Hexo 模板和 NexT 主题
+采用 [Hexo](https://hexo.io/zh-cn/) 模板和 [NexT](https://theme-next.org/) 主题
 自定义了一些颜色，优化和添加了一些小部件
-保留 NexT 原有的简洁，但也不至于烂大街般的撞肤
 如果喜欢，欢迎交流。
+<!-- 保留 NexT 原有的简洁，但也不至于烂大街般的撞肤 -->
 
-博客源码: <a target="_blank" href='//github.com/Mr-Welson/blog'> Github </a>，你的 Star 是我更新的动力，谢谢~
+博客源码: [Github](https://github.com/Mr-Welson/blog)，你的 Star 是我更新的动力，谢谢~
 
+#### 留言 Contact
+
+如果你看到这里，欢迎你留下宝贵的意见或建议，共同学习，互相进步
 
 <!-- ## 打赏
 
