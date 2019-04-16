@@ -82,7 +82,10 @@ theme: next
 ## Docs: https://hexo.io/docs/deployment.html
 deploy: # deploy
   type: git
-  repo: git@github.com:Mr-Welson/Mr-Welson.github.io.git
+  # 使用ssh推送
+  # repo: git@github.com:Mr-Welson/Mr-Welson.github.io.git
+  # 使用账号密码推送
+  repo: https://github.com/Mr-Welson/Mr-Welson.github.io.git
   branch: master
 # ---------------------------------------------------------------
 # local_search -- 本地搜索设置
