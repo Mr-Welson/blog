@@ -541,6 +541,8 @@ function getName(n: NameOrGetter): Name {
 
 ```
 
+type 声明可以定义联合类型，基本类型等多种类型，而 interface 只能定义对象类型
+
 ## 字符串字面量类型
 
 字符串字面量类型用来约束取值只能是某几个字符串中的一个。
@@ -996,8 +998,8 @@ a.isAnimal(a); // TypeError: a.isAnimal is not a function
 ```
 class Person {
     public name:string;
-    protected phone:number;
     private idCard:number;
+    protected phone:number;
     constructor(name,idCard,phone) {
         this.name = name;
         this.idCard = idCard;
@@ -1008,12 +1010,11 @@ class Person {
 let tom = new Person('tom',420000,13811110000);
 console.log(tom.name) // tom
 
-console.log(tom.phone)
-// error:Property 'phone' is protected and only accessible within class 'Person' and its subclasses
-
 console.log(tom.idCard) 
 // error:Property 'idCard' is private and only accessible within class 'Person'.
 
+console.log(tom.phone)
+// error:Property 'phone' is protected and only accessible within class 'Person' and its subclasses
 
 class Teacher extends Person {
     constructor(name,idCard,phone) {
@@ -1174,12 +1175,6 @@ c.interval = 5.0;
 
 
 
-
-
-
-
-
-
 ## 泛型
 
 泛型（Generics）是指在定义函数、接口或类的时候，不预先指定具体的类型，而在使用的时候再指定类型的一种特性。
@@ -1306,7 +1301,7 @@ getLength(7) // error: Argument of type '7' is not assignable to parameter of ty
 ```
 function copyFields<T extends U, U>(target: T, source: U): T {
     for (let id in source) {
-        target[id] = (<T>source)[id];
+        target[id] = (<T>source)[id]; 
     }
     return target;
 }
@@ -1315,6 +1310,8 @@ let x = { a: 1, b: 2, c: 3, d: 4 };
 copyFields(x, { b: 10, d: 20 })
 
 ```
+
+上例中，使用了两个类型参数，其中要求 `T` 继承 `U`，这样就保证了 `U` 上不会出现 `T` 中不存在的字段。
 
 ## 声明文件 declare
 

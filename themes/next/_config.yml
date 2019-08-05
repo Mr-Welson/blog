@@ -450,7 +450,7 @@ valine:
 # You can get your Github ID from https://api.github.com/users/<Github username>
 gitment:
   enable: false
-  mint: true # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
+  mint: false # RECOMMEND, A mint on Gitment, to support count, language and proxy_gateway
   count: true # Show comments count in post meta area
   lazy: false # Comments lazy loading with a button
   cleanly: false # Hide 'Powered by ...' on footer, and more
@@ -458,10 +458,10 @@ gitment:
   language: 
     - zh-Hans
     - en
-  github_user: # MUST HAVE, Your Github ID
-  github_repo: # MUST HAVE, The repo you use to store Gitment comments
-  client_id: # MUST HAVE, Github client id for the Gitment
-  client_secret: # EITHER this or proxy_gateway, Github access secret token for the Gitment
+  github_user: Mr-Welson # MUST HAVE, Your Github ID
+  github_repo: Mr-Welson.github.io # MUST HAVE, The repo you use to store Gitment comments
+  client_id: 0392cff569df5cc7ff21 # MUST HAVE, Github client id for the Gitment
+  client_secret: f0e6deab91f05cdc6a41ddf3604f6de3da277e62 # EITHER this or proxy_gateway, Github access secret token for the Gitment
   proxy_gateway: # Address of api proxy, See: https://github.com/aimingoo/intersect
   redirect_protocol: # Protocol of redirect_uri with force_redirect_protocol when mint enabled
 

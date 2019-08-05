@@ -125,5 +125,5 @@ g:\test\folder\test.txt
 
 - `type nul>fileName`  ------  创建空文件
 
-- `echo [fileContent]>fileName`    ------  创建非空文件
+- `echo [fileContent] > fileName`    ------  创建非空文件
 
